@@ -1,0 +1,339 @@
+:root {
+  --violet-gr: linear-gradient(-45deg, #452E61 0%, #909DDE 100%);
+  --footer: #452E61;
+  --back: #F2F0FE;
+  --text: #344C5B;
+  --link: #687AE0;
+}
+
+/** ------------------------------COMMON------------------------------ **/
+
+html {
+    min-height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background: var(--violet-gr);
+    background-repeat:no-repeat;
+    background: -webkit-linear-gradient(-45deg, #452E61 0%, #909DDE 100%);
+    background: -moz-linear-gradient(-45deg, #452E61 0%, #909DDE 100%);
+    background: -ms-linear-gradient(-45deg, #452E61 0%, #909DDE 100%);
+    background: -o-linear-gradient(-45deg, #452E61 0%, #909DDE 100%);
+    background: linear-gradient(-45deg, #452E61 0%, #909DDE 100%);
+}
+
+h1, h2, h3, .nav-link { 
+  font-family: BebasNeue; 
+  font-weight: normal; 
+  font-style: normal;
+  letter-spacing: 0.01em; 
+  text-align: left;
+}
+
+body {
+  font-size: 16px;
+  font-weight: 100;
+  color: var(--text);
+  font-family: 'PT Mono', monospace;
+  letter-spacing: -0.01em;
+  height: 100%;
+  margin: 0;
+  background-color: var(--violet-gr);
+}
+
+h1 { font-size: 3em; }
+
+h2 { font-size: 2.25em; }
+
+h3 { font-size: 1.25em; }
+
+p, ul, li { margin-bottom: 20px; margin-top: 0; }
+
+h1, h2 { margin-bottom: 40px; }
+
+a, a:visited { color: var(--link); }
+
+.violet-gr {
+  background: var(--violet-gr);
+  height: 100%;
+  color: white;
+}
+
+/** ----------navbar---------- **/
+
+.navbar-brand img{ height: 80px; }
+
+.navbar-brand {padding-top: 3px; padding-bottom: 0;}
+
+.nav-item {margin-top: 12px;}
+
+a.nav-link, .page-footer a { color: white; }
+
+.navbar.navbar-default {
+  height: 120px;
+  padding-top: 20px;
+  padding-bottom: 20px; 
+}
+
+
+.navbar-nav .nav-item:first-child {
+  display: none;
+}
+
+.nav-item {
+  padding-left: 40px;
+}
+
+@media (max-width: 991px) {
+
+  .navbar-nav .nav-item:first-child {
+    display: list-item;
+    font-size: 1.25em;
+    margin-top: 18px;
+  }
+
+  .navbar-nav .nav-item:not(:first-child) {
+    display: none;
+  }
+
+  .navbar-brand img { height: 60px; }
+}
+
+/** ----------footer---------- **/
+
+.page-footer { 
+  color: white;
+  min-height: 80px;
+  margin-bottom: 20px;
+}
+
+.page-footer div {
+  text-align: right;
+  font-size: 0.8em;
+}
+
+@media (max-width: 575px) { 
+
+  .page-footer div {
+    text-align: center;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+  }
+
+  .page-footer h3 {
+    text-align: center;
+    border-top: solid 1px white;
+    padding-top: 40px;
+  }
+
+}
+
+/** ----------buttons---------- **/
+
+.ndl-btn, .ndl-btn:visited {
+  margin-top: 0;
+  margin-bottom: 20px;
+  height: 50px;
+  border-radius: 0;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: 20px;
+  padding: 15px 20px;
+  min-width: 120px;
+  color: var(--link);
+  border-color: var(--link);
+  background-color: transparent;
+}
+
+.ndl-btn:hover, .ndl-btn:focus {
+  outline: none;
+  color: var(--back);
+  background-color: var(--link);
+  border-color: var(--link);
+}
+
+.ndl-btn:active, .ndl-btn:active:focus {
+  color: var(--link);
+  background-color: white;
+  border-color: var(--back);
+}
+
+.white-btn, .white-btn:visited {
+  color: inherit;
+  border-color: white;
+}
+
+.white-btn:focus, .white-btn:hover {
+  color: var(--link);
+  background-color: white;
+  border-color: white;
+}
+
+.white-btn:active, .white-btn:active:focus 
+  {
+  color: white;
+  background-color: var(--link);
+  border-color: var(--link);
+}
+
+/** HOME **/
+
+/** ----------carousel---------- **/
+
+.carousel {
+  margin-bottom: 40px;
+}
+
+.carousel-caption {
+  position: relative;
+  text-align: left;
+  left: inherit;
+  right: inherit;
+  min-height: 340px;
+}
+
+.carousel-caption:not(#caption-0) {
+    display: none;
+}
+
+.carousel-caption:not(#caption-0) {
+    display: none;
+}
+
+.carousel-indicators {
+  display: inline-block;
+  top: -15px;
+  left: -25px;
+}
+
+.carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  border: solid 1px white;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  background-color: transparent;
+}
+
+.carousel-indicators li.active {
+  background-color: white;
+}
+
+#slider_captions {
+  margin-top: 100px;
+}
+
+
+.carousel-inner {
+  left: 120px;
+  top: -20px;
+  height: 600px;
+}
+
+.carousel-inner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: auto;
+  height: 600px;
+  overflow: visible; /** <--- move it to .carousel-inner when js is fixed **/
+}
+
+@media (max-width: 991px){
+  .carousel-inner {
+  left: 80px;
+  }
+}
+
+@media (max-width: 767px){
+
+  .carousel-inner {
+    left: 0;
+    top: 0;
+    height: 400px;
+  }
+
+  .carousel-indicators {
+    display: flex;
+    top: -50px;
+    left: 0;
+    justify-content: flex-end;
+    margin-right: 15px;
+  }
+
+  .carousel-indicators li {
+    margin-left: 50px;
+  }
+
+  #slider_captions {
+    margin-top: 60px;
+  }
+
+  .carousel-inner img {
+    height: 400px;
+  }
+
+  .carousel-caption button { 
+    position: absolute;
+    top: 287px;
+  }
+  
+}
+
+@media (max-width: 400px) {
+
+  .carousel-caption {
+    min-height: 400px;
+  }
+
+  .carousel-indicators {
+    top: -80px;
+  }
+
+  .carousel-caption button { 
+    top: 320px;
+  }
+}
+
+
+/**connected bullets **/
+
+ul.conn li {
+    position:relative; /* so that pseudoelements are positioned relatively to their "li"s*/
+    /* use padding-bottom instead of margin-bottom.*/ 
+    margin-bottom: 0; /* This overrides previously specified margin-bottom */
+    padding-bottom: 1em;
+    margin-left: 19px;
+}
+
+ul.conn li:after {
+    /* bullets */
+    content: '\2022';
+    font-size: 1.6em;
+    line-height: 24px;
+    position: absolute;
+    left: -22px; /*adjust manually*/
+    top: 0px;
+}
+
+ul.conn li:before {
+    /* lines */
+    content:"";
+    position: absolute;
+    left: -15px; /* adjust manually */
+    border-left: 1px solid white;
+    height: 100%;
+    width: 2px;
+}
+
+ul.conn li:first-child:before {
+   /* first li's line */
+   top: 12px; /* moves the line down so that it disappears under the bullet. Adjust manually */
+}
+
+ul.conn li:last-child:before {
+    /* last li's line */
+   height: 12px; /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
+}
