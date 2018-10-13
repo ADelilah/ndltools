@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Emotion recognition tool by Neurodata lab</title>
+
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/styles.css" rel="stylesheet">
+    <link href="../vendor/checkboxes.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../vendor/fonts/MyFontsWebfontsKit.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg static-top navbar-default">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html"><img src="../assets/logo.svg" onerror="this.onerror=null; this.src='../assets/logo.png'"></a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="login.html#login"><ion-icon name="contact"></ion-icon></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">Username</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row white-text tool-head">
+
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+          <h1>Emotion recognition</h1>
+          <h2>Demo tool</h2>
+        </div>
+
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 tool-description">
+          <ul class="conn list-unstyled">
+            <li>7 emotions</span>: anger, disgust, surprise, sadness, happiness, fear/anxiety, neutral</li>
+            <li>From <span class="bold">3 modalities</span>: face, eyes and voice</li>
+            <li>Continuous emotion prediction for <span class="bold">up to 4 people</span> in the frame</li>
+          </ul>
+        </div>
+        </div> <!-- end row -->
+
+        <nav class="nav nav-pills nav-fill" id="toolTabs" role="tablist">
+          <a class="nav-item nav-link active" id="file-tab" data-toggle="pill" href="#file" role="tab" aria-controls="file" aria-selected="true">Pre-recorded</a>
+          <a class="nav-item nav-link" id="web-tab" data-toggle="pill" href="#web" role="tab" aria-controls="web" aria-selected="false">Real-time</a>
+          <a class="nav-item nav-link" id="sample-tab" data-toggle="pill" href="#sample" role="tab" aria-controls="sample" aria-selected="false">Example</a>
+        </nav>
+    </div> <!-- end head container -->
+
+    <div class="tab-back">
+      <div class="container">
+
+        <div class="tab-content">
+          <div class="tab-pane active pb-40" id="file" role="tabpanel" aria-labelledby="file-tab">
+            <div class="row">
+
+              <div class="col-lg-9 col-md-7 col-sm-12 col-xs-12">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="dragdrop">
+                    <label class="custom-file-label d-flex justify-content-center align-items-center" for="dragdrop"><div class=""><p>Drop a video</p><p>or</p><a>choose from device</a></div></label>
+                  </div>
+              </div>
+
+              <div class="col-lg-3 col-md-5 col-sm-12 col-xs-12 requirements">
+                <ul class="list-unstyled">
+                  <li>• mp4, mov, avi, mpg</li>
+                  <li>• 10 sec to 10 min</li>
+                  <li>• Min 600x320px</li>
+                  <li>• Max 100Mb</li>
+                  <li>• Max 7 people</li>
+                  <li>• No VPN</li>
+                  <li>• English only</li>
+                </ul>
+                <a class="btn ndl-btn" id="spec" href="#">Get specification</a>
+              </div>
+
+            </div> <!-- end row -->
+          </div><!-- end file tab -->
+
+          <div class="tab-pane pb-20" id="web" role="tabpanel" aria-labelledby="web-tab">
+             <div class="row"> 
+
+              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="container-video d-flex justify-content-center align-items-center pb-40">
+                  <p id="text-over-video">Tool needs access to your webcam</p>
+                  <video autoplay="true" id="webcamVideo"></video>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                <div class="form mb-40">
+                    <div class="form-check pl-0">
+                      <label class="radio-block form-check-label" for="frameRadios1">
+                        <input class="form-check-input" type="radio" name="frameRadios" id="frameRadios1" value="single" checked/>
+                        <span class="lbl">
+                          <h3>Single-frame</h3>
+                          <div>Less accurate. Real-time.</div>
+                        </span>
+                        <div class="radio-block-back"></div>
+                      </label>
+                      <label class="radio-block form-check-label" for="frameRadios2">
+                        <input class="form-check-input" type="radio" name="frameRadios" id="frameRadios2" value="multi"/>
+                        <span class="lbl">
+                          <h3>Multi-frame</h3>
+                          <div>More accurate. Small delay in recognation may be expected.</div>
+                        </span>
+                        <div class="radio-block-back"></div>
+                      </label> 
+                    </div>
+                    <a class="btn ndl-btn w-100 mb-0" role="button" id="start" href="er2.html">Start</a> <!-- <- should has type="submit" but can't edit the style -->
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                  <ul class="list-unstyled">
+                    <li>• 60 s demonstration</li>
+                    <li>• Unlimited runs</li>
+                    <li>• Max 4 people</li>
+                  </ul>
+                  <a class="btn ndl-btn mb-40" id="spec" href="#">Get specification</a>
+              </div>
+
+             </div><!-- end row -->
+          </div><!-- end web tab -->
+
+          <div class="tab-pane pb-60" id="sample" role="tabpanel" aria-labelledby="sample-tab">
+            <div class="row m-0">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/1.png">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/2.png">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/3.png">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/4.png">
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/5.png">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/6.png">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/7.png">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/8.png">
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/9.png">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/10.png">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/11.png">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/12.png">
+                </div>
+
+            </div> <!-- end row -->
+          </div>
+        </div>
+
+      </div> <!-- end tab container -->
+    </div><!-- end tab background -->
+
+    <footer class="page-footer vio">
+      <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-3 d-flex align-items-center">
+              <a href="http://www.neurodatalab.com"><h3>Neurodata lab &copy; 2018</h3></a>
+            </div>
+            <div class="col-md-3 col-sm-2 col-xs-1"></div>
+            <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
+                <a href=#>Terms of service</a>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
+                <a href=#>Contact support</a>
+            </div>
+          </div>
+      </div>
+    </footer>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+    <script src="../vendor/script.js"></script>
+
+  </body>
+
+</html>
