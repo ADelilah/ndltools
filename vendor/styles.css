@@ -6,8 +6,22 @@
   --text: #344C5B;
   --link: #687AE0;
   --light-violet: #C4B7D5;
+  --super-light-violet: #EDEAF7;
   --dark-violet: #452E61;
   --light-grey: #E1E5EE;
+
+  --happy: linear-gradient(-45deg, #B87290 3%, #FB9DC5 97%);
+  --lichi: #B87290;
+  --surprised: linear-gradient(-45deg, #72B7AB 3%, #9CFBEA 97%);
+  --lime: #72B7AB;
+  --disgusted: linear-gradient(-45deg, #B6B072 3%, #FDF496 97%);
+  --melon: #B6B072;
+  --angry: linear-gradient(-45deg, #B67D72 3%, #FDAF9F 97%);
+  --cherry: #B67D72;
+  --anxious: linear-gradient(-45deg, #A570B8 3%, #E59DFF 97%);
+  --grape: #A570B8;
+  --sad: linear-gradient(-45deg, #708CB8 3%, #A5C9FF 97%);
+  --plum: #708CB8;
 }
 
 /** ------------------------------COMMON------------------------------ **/
@@ -27,14 +41,14 @@ html {
     background: linear-gradient(-45deg, #452E61 0%, #909DDE 100%);
 }
 
-h1, h2, h3, .nav-link { 
+h1, h2, h3, .nav-link, .h3-inl, #chartTab .nav-link.active { 
   font-family: BebasNeue; 
   font-weight: normal; 
   font-style: normal;
   letter-spacing: 0.01em; 
 }
 
-h1, h2, h3, .navbar-nav .nav-link {
+h1, h2, h3, .navbar-nav .nav-link, .h3-inl {
   text-align: left;
 }
 
@@ -60,16 +74,26 @@ p, ul, li { margin-bottom: 20px; margin-top: 0; }
 
 h1, h2 { margin-bottom: 40px; }
 
-a, a:visited, a:not([href]):not([tabindex]) { color: var(--link); }
+a, a:visited, a:not([href]):not([tabindex]), #chartTab .nav-link:not(.active) { color: var(--link); }
 
 .white-text {
   color: white;
 }
 
+.w-block {
+  background: white;
+  border: solid 1px var(--light-grey);
+}
+
 .pb-20 {padding-bottom: 20px;}
+.pl-20 {padding-left: 20px;}
 .pb-40 {padding-bottom: 40px;}
+.pt-40 {padding-top: 40px;}
 .pb-60 {padding-bottom: 60px;}
+.mb-20 {margin-bottom: 20px;}
 .mb-40 {margin-bottom: 40px;}
+.mt-20 {margin-top: 20px;}
+.mt-40 {margin-top: 40px;}
 
 /** ----------navbar---------- **/
 
@@ -396,6 +420,12 @@ ul.conn li:last-child:before {
   border-color: var(--text);
   margin: 0; 
 }
+
+.tab-pane h1 {
+  line-height: 50px;
+  margin-bottom: 40px;
+}
+
 /** ----------file---------- **/
 
 .custom-file, .custom-file-input {
@@ -463,4 +493,314 @@ ul.conn li:last-child:before {
 .hover-fade:hover, .hover-fade:focus {
   opacity: 1;
   background: rgba(0, 0, 0, 0.7);
+}
+
+/** ----------------------------------------PROCESSING----------------------------------**/
+
+.current-file {
+  min-height: 50px;
+  margin-bottom: 20px;
+}
+
+.spec-with-line {
+  border-top: solid 1px var(--light-grey);
+  width: 100%;
+  min-height: 50px;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+/** -------steps--------**/
+
+.steps h3 {
+  padding-top: 5px;
+  display: inline;
+}
+
+.steps li {
+  position: relative;
+  padding-top: 20px;
+  opacity: 0.4;
+}
+
+.steps > li > span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  line-height: 40px;
+  text-align: center;
+  background: var(--light-violet);
+  position: relative;
+  z-index: 2;
+}
+
+.steps li::after {
+  content: '';
+  position: absolute;
+  background: var(--light-violet);
+  z-index: 1;
+  top: 40px;
+  bottom: -40px;
+  left: 18px;
+  width: 4px;
+}
+.steps li:last-child::after {
+  display: none;
+}
+
+li.done {
+  opacity: 1;
+  transition: 1s ease;
+}
+li.done::after {
+  opacity: 1;
+  transition: 2s ease;
+}
+
+/** -------progres bars--------**/
+
+.pr-bar {
+  height: 60px;
+  margin: 20px 0px 20px 40px;
+  font-size: inherit;
+  color: inherit;
+  border-radius: 0;
+}
+
+.progress-bar {
+  font-size: inherit;
+  color: inherit;
+  overflow: visible;
+  background: var(--light-violet-gr);
+}
+
+.pr-bar-label {
+  position: absolute;
+  left: 60px;
+}
+
+/** ----------------------------------------RESULTS----------------------------------**/
+
+/** -------summary--------**/
+
+.summary, .chartrow .w-block {
+  padding: 40px;
+}
+
+.summary > div:not(:last-child) {
+  margin-right: 40px;
+}
+
+.summary > div:last-child {
+  min-width: 260px;
+}
+
+@media (max-width: 1199px) {
+  .summary > div:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  .summary > div:last-child {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .summary > div:last-child > a {
+    margin-bottom: 0;
+  }
+
+  .summary > div:last-child > div {
+    width: 40px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 524px) {
+  .summary > div:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .summary > div:last-child {
+    flex-wrap: wrap;
+  }
+
+}
+
+
+/** -------chart tab--------**/
+
+#chartTab {
+  margin-top: 40px;
+}
+
+#chartTab .nav-link {
+  background-color: transparent;
+  border-radius: 0;
+  min-height: 50px;
+  min-width: 120px;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#chartTab .nav-link.active {
+  border-bottom-color: var(--back);
+}
+
+/** -------chart blocks--------**/
+
+/**
+.chartrow .lined {
+  padding-left: 50px;
+}
+
+.chartrow .lined div {
+  position: relative;
+}
+
+.chartrow .lined div::after {
+  content: '';
+  position: absolute;
+  background: var(--light-violet);
+  z-index: 1;
+  top: 0px;
+  height: 70px;
+  left: -14px;
+  width: 4px;
+} 
+**/
+
+.chartrow {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.chartcol {
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 100%;
+}
+
+.w-block {
+  position: relative;
+}
+
+.lined div:first-child {
+  margin-bottom: 20px;
+}
+
+.chart-placeholder {
+  position: absolute;
+  top: 80px;
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
+  background-color: var(--light-grey);
+}
+
+.circle-20 {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.legend {
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.legend div:not(:first-child) {
+  padding-top: 5px;
+}
+
+.legend div:not(:last-child) {
+  padding-bottom: 5px;
+}
+
+.legend div span {
+  vertical-align: middle;
+}
+
+@media (max-width: 991px) {
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+  .legend div {
+    padding: 5px 10px;
+  }
+
+}
+
+@media (max-width: 575px) {
+
+  .chartrow .w-block {
+    padding: 20px;
+  }
+
+  .lined {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .lined div:first-child {
+    margin-bottom: 0px;
+  }
+
+}
+
+.happy {
+  background: var(--happy);
+}
+
+.lichi {
+  color: var(--lichi);
+}
+
+.sad {
+  background: var(--sad);
+}
+
+.plum {
+  color: var(--plum);
+}
+
+.angry {
+  background: var(--angry);
+}
+
+.cherry {
+  color: var(--cherry);
+}
+
+.anxious {
+  background: var(--anxious);
+}
+
+.grape {
+  color: var(--grape);
+}
+
+.surprised {
+  background: var(--surprised);
+}
+
+.lime {
+  color: var(--lime);
+}
+
+.disgusted {
+  background: var(--disgusted);
+}
+
+.melon {
+  color: var(--melon);
 }

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Emotion recognition tool by Neurodata lab</title>
+
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/styles.css" rel="stylesheet">
+    <link href="../vendor/checkboxes.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../vendor/fonts/MyFontsWebfontsKit.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg static-top navbar-default">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html"><img src="../assets/logo.svg" onerror="this.onerror=null; this.src='../assets/logo.png'"></a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="login.html#login"><ion-icon name="contact"></ion-icon></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">Username</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row white-text tool-head">
+
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+          <h1>Emotion recognition</h1>
+          <h2>Demo tool</h2>
+        </div>
+
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 tool-description">
+          <ul class="conn list-unstyled">
+            <li>7 emotions</span>: anger, disgust, surprise, sadness, happiness, fear/anxiety, neutral</li>
+            <li>From <span class="bold">3 modalities</span>: face, eyes and voice</li>
+            <li>Continuous emotion prediction for <span class="bold">up to 4 people</span> in the frame</li>
+          </ul>
+        </div>
+        </div> <!-- end row -->
+
+        <nav class="nav nav-pills nav-fill" id="toolTabs" role="tablist">
+          <a class="nav-item nav-link active" id="proc-tab" data-toggle="pill" href="#proc" role="tab" aria-controls="proc" aria-selected="true">Processing</a>
+          <a class="nav-item nav-link" id="res-tab" data-toggle="pill" href="#res" role="tab" aria-controls="res" aria-selected="false">Results</a>
+        </nav>
+    </div> <!-- end head container -->
+
+    <div class="tab-back">
+      <div class="container">
+
+        <div class="tab-content">
+
+          <!-- PROCESSING -->
+
+          <div class="tab-pane active" id="proc" role="tabpanel" aria-labelledby="proc-tab">
+            <div class="row"> 
+
+              <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <div class="current-file d-flex align-items-center">
+                  <span>Processing uloaded file:</span>
+                  <span class="h3-inl pl-20" id="fileName">filename.mp4</span>
+                  <span class="h3-inl pl-20" id="fileTime">155.3 s</span>
+                  <span class="h3-inl pl-20" id="fileFPS">29.97 fps</span>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                  <a class="btn ndl-btn w-100" role="button" id="cancelProcessing" href="#">Cancel processing</a>
+              </div>
+
+            </div><!-- end row -->
+
+             <div class="row"> 
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <ul class="steps list-unstyled">
+                  <li class="done" id="processingStep1">
+                    <span>1</span>
+                    <h3>Features processing</h3>
+
+                    <div class="progress pr-bar w-block">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="pr-bar-label">Face detector <span class="h3-inl pl-20" id="progressFace">0%</span></div></div>
+                      </div>
+                      <div class="progress pr-bar w-block">
+                        <div class="progress-bar" role="progressbar" style="width: 5%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="pr-bar-label">Body tracker <span class="h3-inl pl-20" id="progressBody">5%</span></div></div>
+                      </div>
+                      <div class="progress pr-bar w-block">
+                        <div class="progress-bar" role="progressbar" style="width: 17%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="pr-bar-label">Audio processor <span class="h3-inl pl-20" id="progressAudio">17%</span></div></div>
+                      </div>
+                      <div class="progress pr-bar w-block">
+                        <div class="progress-bar" role="progressbar" style="width: 5%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="pr-bar-label">Features total <span class="h3-inl pl-20" id="progressFeatures">5%</span></div></div>
+                      </div>
+
+                  </li>
+                  <li id="processingStep2">
+                    <span>2</span>
+                    <h3>Emotion detection</h3>
+                    <div class="progress pr-bar w-block">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="pr-bar-label"><span class="h3-inl pl-20" id="progressEmotion">0%</span></div></div>
+                    </div>
+                  </li>
+                  <li id="processingStep3">
+                    <span>3</span>
+                    <h3>Results</h3>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="spec-with-line d-flex align-items-center justify-content-center">
+                  <a href="#">Get specification</a>
+                </div>
+              </div>
+
+             </div><!-- end row -->
+          </div><!-- end proc tab -->
+
+          <!-- RESULTS -->
+
+          <div class="tab-pane" id="res" role="tabpanel" aria-labelledby="res-tab">
+            <div class="row">
+
+              <div class="col-lg-9 col-md-9 col-sm-6 col-xs-3">
+                <h1 class="">Results</h1>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-9">
+                  <a class="btn ndl-btn w-100" role="button" id="startOver" href="#">Start over</a>
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <!-- SUMMARY -->
+
+                <div class="summary w-block mb-40 d-flex align-items-center justify-content-between flex-wrap">
+                    <div class=""><h2 class="mb-0" id="resSpeakers">5</h2><span>speakers found</span></div>
+                    <div class=""><h2 class="mb-0" id="resAthmosphere">Neutral</h2><span>overall athmosphere</span></div>
+                    <div class=""><h2 class="mb-0" id="resTime">02:47</h2><span>processing time</span></div>
+                    <div class=""><h2 class="mb-0"><span id="resFPS">29.1</span> FPS</h2><span>processing speed</span></div>
+                    <div>
+                      <a class="btn ndl-btn w-100" role="button" id="getVideo" href="#">Get video</a>
+                      <div></div>
+                      <a class="btn ndl-btn w-100 mb-0" role="button" id="getData" href="#">Get data</a>
+                    </div>
+                </div>
+
+                <!-- VIDEO -->
+              
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe id="videoEmbeded" class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                </div>
+
+                <!-- CHART TAB -->
+
+                <ul class="nav nav-tabs" id="chartTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="speaker1-tab" data-toggle="tab" href="#speaker1" role="tab" aria-controls="speaker1" aria-selected="true">ID 1</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="speaker2-tab" data-toggle="tab" href="#speaker2" role="tab" aria-controls="speaker2" aria-selected="false">ID 2</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="speaker3-tab" data-toggle="tab" href="#speaker3" role="tab" aria-controls="speaker3" aria-selected="false">ID 3</a>
+                  </li>
+                </ul>
+
+                <div class="tab-content" id="spekerTab1">
+                  <div class="tab-pane mt-20 fade show active" id="speaker1" role="tabpanel" aria-labelledby="speaker1-tab">
+                    
+                    <!-- CHART BLOCKS -->
+
+                    <div class="row chartrow">
+
+                      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 chartcol">
+                        <div class="w-block lined mt-20">
+                          <div><h3 class="mb-0" id="speakerAge">33</h3><span>approx. age</span></div>
+                          <div><h3 class="mb-0" id="speakerPresented">whole video</h3><span>presense</span></div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-8 col-md-9 col-sm-8 col-xs-12 chartcol">
+                        <div class="w-block h-100 mt-20">
+                          <h3 class="mb-20">Overall emotion apperance</h3>
+                          <div class="chart-placeholder"></div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 chartcol">
+                        <div class="legend mt-20">
+                          <div><span class="circle-20 happy"></span><span class="lichi h3-inl">Happy</span></div>
+                          <div><span class="circle-20 angry"></span><span class="cherry h3-inl">Angry</span></div>
+                          <div><span class="circle-20 disgusted"></span><span class="melon h3-inl">Disgusted</span></div>
+                          <div><span class="circle-20 surprised"></span><span class="lime h3-inl">Surprised</span></div>
+                          <div><span class="circle-20 sad"></span><span class="plum h3-inl">Sad</span></div>
+                          <div><span class="circle-20 anxious"></span><span class="grape h3-inl">Anxious</span></div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 chartcol">
+                        <div class="w-block mt-20">
+                          <h3 class="mb-40">Emotion dynamics</h3>
+                          <div class="chart-placeholder"></div>
+                        </div>
+                      </div>                      
+
+                    </div>
+
+                  </div>
+                  <div class="tab-pane pt-40 fade" id="speaker2" role="tabpanel" aria-labelledby="speaker2-tab">
+                    <p>"How the hell did you find me here?" he asked his dead wife.
+                    She shook her head slowly, amused. "You shine like a beacon in a dark world," she told him. "It wasn't that hard. Now, just go. Go as far and as fast as you can. Don't use your credit cards and you should be fine."
+                    "Where should I go?"
+                    She pushed a hand through her matted hair, flicking it back out of her eyes. "The road's that way," she told him. "Do whatever you can. Steal a car if you have to. Go south."
+                    "Laura," he said, and hesitated. "Do you know what's going on? Do you know who these people are? Who you killed?"
+                    "Yeah," she said. "I think I do know."
+                    "I owe you," said Shadow. "I'd still be in there if it wasn't for you. I don't think they had anything good planned for me."
+                    "No," she said. "I don't think they did."
+                    They walked away from the empty train cars. Shadow wondered about the other trains he'd seen, blank window-less metal cars that went on for mile after mile, hooting their lonely way through the night. His fingers closed around the Liberty dollar in his pocket, and he remembered Zorya Polunochnaya, and the way she had looked at him in the moonlight. Did you ask her what she wanted? It is the wisest thing to ask the dead. Sometimes they will tell you.
+                    "Laura...What do you want?" he asked.
+                    "You really want to know?"
+                    "Yes. Please."</p>
+                    </div>
+                  <div class="tab-pane pt-40 fade" id="speaker3" role="tabpanel" aria-labelledby="speaker3-tab">
+                    <p>Laura looked up at him with dead blue eyes. "I want to be alive again," she said. "Not in this half-life, I want to be really alive. I want to feel my heart pumping in my chest again. I want to feel blood moving through me-hot, and salty, and real. It's weird, you don't think you can feel it, the blood, but believe me, when it stops flowing, you'll know." She rubbed her eyes, smudging her face with red from the mess on her hands. "Look, it's hard. You know why dead people only go out at night, puppy? Because it's easier to pass for real, in the dark. And I don't want to have to pass. I want to be alive."
+                    "I don't understand what you want me to do."
+                    "Make it happen, hon. You'll figure it out. I know you will."
+                    "Okay," he said. "I'll try. And if I do figure it out, how do I find you?"
+                    But she was gone, and there was nothing left in the woodland but a gentle gray in the sky to show him where east was, and on the bitter December wind a lonely wail that might have been the cry of the last nightbird or the call of the first bird of dawn.
+                    Shadow set his face to the south, and he began to walk.</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- SPEC -->
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="spec-with-line d-flex align-items-center justify-content-center">
+                  <a href="#">Get specification</a>
+                </div>
+              </div>
+
+            </div> <!-- end row -->
+
+          </div><!-- end res tab -->
+        </div>
+
+      </div> <!-- end tab container -->
+    </div><!-- end tab background -->
+
+    <footer class="page-footer vio">
+      <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-3 d-flex align-items-center">
+              <a href="http://www.neurodatalab.com"><h3>Neurodata lab &copy; 2018</h3></a>
+            </div>
+            <div class="col-md-3 col-sm-2 col-xs-1"></div>
+            <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
+                <a href=#>Terms of service</a>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
+                <a href=#>Contact support</a>
+            </div>
+          </div>
+      </div>
+    </footer>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+    <script src="../vendor/script.js"></script>
+
+  </body>
+
+</html>
