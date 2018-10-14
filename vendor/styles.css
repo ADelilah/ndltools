@@ -590,13 +590,16 @@ li.done::after {
 
 .summary > div:not(:last-child) {
   margin-right: 40px;
+  display: inline-block;
+  width: auto;
+  max-width: 120px;
 }
 
 .summary > div:last-child {
   min-width: 260px;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 991px) {
   .summary > div:not(:last-child) {
     margin-bottom: 40px;
   }
@@ -618,7 +621,7 @@ li.done::after {
 
 @media (max-width: 524px) {
   .summary > div:not(:last-child) {
-    margin-right: 0;
+    margin-right: 20px;
   }
 
   .summary > div:last-child {
