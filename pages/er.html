@@ -69,6 +69,7 @@
 
               <div class="col-lg-9 col-md-7 col-sm-12 col-xs-12">
                   <div class="custom-file">
+                    <div class="error" id=fileValErrorER>Maximum file size is 100Mb.</div>
                     <input type="file" class="custom-file-input" id="dragdrop">
                     <label class="custom-file-label d-flex justify-content-center align-items-center" for="dragdrop"><div class=""><p>Drop a video</p><p>or</p><a>choose from device</a></div></label>
                   </div>
@@ -90,18 +91,33 @@
             </div> <!-- end row -->
           </div><!-- end file tab -->
 
-          <div class="tab-pane pb-20" id="web" role="tabpanel" aria-labelledby="web-tab">
-             <div class="row"> 
+          <div class="tab-pane pb-60" id="web" role="tabpanel" aria-labelledby="web-tab">
+
+             <!---------- for BUSY tool only ------------>
+             <div class="row busy-tool"> 
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div>
+                    <div><p>Rush hour! Tool is currently busy, please, wait.</p></div>
+                    <div><h2 id="queueERweb" class="mb-0">2</h2><p class="mb-0">people in queue</p></div>
+                  </div>
+                </div>
+             </div> <!-- end row for busy tool -->
+
+             <div class="row" id="uiERweb"> 
 
               <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <div class="container-video d-flex justify-content-center align-items-center pb-40">
+                <div class="embed-responsive embed-responsive-16by9 h-100">
+                  <p id="text-over-video">Tool needs access to your webcam</p>
+                  <video autoplay="true" class="embed-responsive-item" id="webcamVideo"></video>
+                </div>
+                <!--<div class="container-video d-flex justify-content-center align-items-center pb-40">
                   <p id="text-over-video">Tool needs access to your webcam</p>
                   <video autoplay="true" id="webcamVideo"></video>
-                </div>
+                </div>-->
               </div>
 
               <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                <div class="form mb-40">
+                <div class="form">
                     <div class="form-check pl-0">
                       <label class="radio-block form-check-label" for="frameRadios1">
                         <input class="form-check-input" type="radio" name="frameRadios" id="frameRadios1" value="single" checked/>

@@ -89,32 +89,76 @@
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                 <ul class="steps list-unstyled">
-                  <li class="done" id="processingStep1">
+                  <li id="processingStep1">
                     <span>1</span>
                     <h3>Features processing</h3>
 
-                    <div class="progress pr-bar w-block">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="pr-bar-label">Face detector <span class="h3-inl pl-20" id="progressFace">0%</span></div></div>
+                      <div class="progress pr-bar w-block disabled">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                          <div class="pr-bar-label">
+                            <span>Face detector: <span class="h3-inl" id="progressFace">0%</span></span>
+                            <span>Face detector is busy, please, wait. People in queue: <span class="h3-inl" id="queueFace">3</span></span>
+                          </div>
+                          <div class="pr-bar-stat" id="statFace"> 
+                            <span>Time: <span class="h3-inl" id="timeFace">00:00</span></span>
+                            <span class="pl-20">Speed:<span class="h3-inl"><span id="speedFace">00.0</span>FPS</span></span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="progress pr-bar w-block">
+                        <div class="progress-bar" role="progressbar" style="width: 5%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <div class="pr-bar-label">
+                              <span>Body tracker: <span class="h3-inl" id="progressBody">5%</span></span>
+                              <span>Body tracker is busy, please, wait. People in queue: <span class="h3-inl" id="queueFace">3</span></span>
+                            </div>
+                            <div class="pr-bar-stat" id="statBody">
+                              <span>Time: <span class="h3-inl" id="timeBody">00:07</span></span>
+                              <span class="pl-20">Speed: <span class="h3-inl"><span id="speedBody">24.9</span>FPS</span></span>
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="progress pr-bar w-block">
+                        <div class="progress-bar" role="progressbar" style="width: 17%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                          <div class="pr-bar-label">
+                            <span>Audio processor: <span class="h3-inl" id="progressAudio">17%</span></span>
+                            <span>Audio processor is busy, please, wait. People in queue: <span class="h3-inl" id="queueFace">3</span></span>
+                          </div>
+                          <div class="pr-bar-stat" id="statAudio">
+                              <span>Time: <span class="h3-inl" id="timeAudio">00:09</span></span>
+                              <span class="pl-20">Speed: <span class="h3-inl"><span id="speedAudio">27.1</span>FPS</span></span>
+                          </div>
+                        </div>
                       </div>
                       <div class="progress pr-bar w-block">
-                        <div class="progress-bar" role="progressbar" style="width: 5%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="pr-bar-label">Body tracker <span class="h3-inl pl-20" id="progressBody">5%</span></div></div>
-                      </div>
-                      <div class="progress pr-bar w-block">
-                        <div class="progress-bar" role="progressbar" style="width: 17%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="pr-bar-label">Audio processor <span class="h3-inl pl-20" id="progressAudio">17%</span></div></div>
-                      </div>
-                      <div class="progress pr-bar w-block">
-                        <div class="progress-bar" role="progressbar" style="width: 5%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="pr-bar-label">Features total <span class="h3-inl pl-20" id="progressFeatures">5%</span></div></div>
+                        <div class="progress-bar" role="progressbar" style="width: 5%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                          <div class="pr-bar-label">
+                            <span>Features total: <span class="h3-inl" id="progressFeatures">5%</span></span>
+                            <span>Module is busy, please, wait. People in queue: <span class="h3-inl" id="queueFace">3</span></span>
+                          </div>
+                         
+                          <div class="pr-bar-stat" id="statFeatures">
+                              <span>Time: <span class="h3-inl" id="timeFeatures">00:15</span></span>
+                              <span class="pl-20">Speed: <span class="h3-inl"><span id="speedFeatures">29.1</span>FPS</span></span>
+                          </div>
+                        </div>
                       </div>
 
                   </li>
-                  <li id="processingStep2">
+                  <li id="processingStep2" class="inactive">
                     <span>2</span>
                     <h3>Emotion detection</h3>
                     <div class="progress pr-bar w-block">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="pr-bar-label"><span class="h3-inl pl-20" id="progressEmotion">0%</span></div></div>
+                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div class="pr-bar-label">
+                          <span class="h3-inl" id="progressEmotion">0%</span>
+                          <span>Module is busy, please, wait. People in queue: <span class="h3-inl" id="queueFace">3</span></span>
+                        </div>
+                      </div>
                     </div>
                   </li>
-                  <li id="processingStep3">
+                  <li id="processingStep3" class="inactive">
                     <span>3</span>
                     <h3>Results</h3>
                   </li>
