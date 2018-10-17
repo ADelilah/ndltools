@@ -77,6 +77,45 @@ h1, h2 { margin-bottom: 40px; }
 
 a, a:visited, a:not([href]):not([tabindex]), #chartTab .nav-link:not(.active) { color: var(--link); }
 
+a:hover {text-decoration: none;}
+
+a {
+  position: relative;
+}
+
+a:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -1px;
+  width: 0%;
+  height: 1px;
+  background: white;
+  -webkit-transition: width 0.4s;
+  -o-transition: width 0.4s;
+  transition: width 0.4s;
+}
+
+a:not(.icon):not(.btn):not(.active):not(.navbar-brand):not([id^='speaker']):hover:before {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+a.nav-link:before {
+  height: 2px;
+  bottom: 5px;
+}
+
+.spec-with-line a:before {
+  background: var(--link);
+}
+
+#login a:before {
+  top: 25px;
+  bottom: auto;
+}
+
 .white-text {
   color: white;
 }
@@ -96,7 +135,7 @@ a, a:visited, a:not([href]):not([tabindex]), #chartTab .nav-link:not(.active) { 
 .mt-20 {margin-top: 20px;}
 .mt-40 {margin-top: 40px;}
 
-.inactive {
+.inactive, .btn.disabled {
   opacity: 0.4;
 }
 
@@ -104,6 +143,23 @@ a, a:visited, a:not([href]):not([tabindex]), #chartTab .nav-link:not(.active) { 
   background: var(--error);
   color: var(--lichi);
   padding: 20px;
+}
+
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
 }
 
 /** ----------navbar---------- **/
@@ -114,7 +170,7 @@ a, a:visited, a:not([href]):not([tabindex]), #chartTab .nav-link:not(.active) { 
 
 .navbar-nav .nav-item {margin-top: 12px;}
 
-a.nav-link, .page-footer a { color: white; }
+#mainNav a, a.nav-link, .page-footer a { color: white; }
 
 .navbar.navbar-default {
   height: 120px;
@@ -150,8 +206,11 @@ a.nav-link, .page-footer a { color: white; }
 
 .page-footer .row { 
   color: white;
-  font-size: 0.8em;
   min-height: 80px;
+}
+
+.page-footer a:not(.nav-link) {
+  font-size: 0.8em;
 }
 
 .page-footer.vio {
@@ -195,6 +254,10 @@ a.nav-link, .page-footer a { color: white; }
 }
 
 /** ----------buttons---------- **/
+
+[type=submit], .modal [type=button] {
+  -webkit-appearance: none;
+}
 
 .ndl-btn, .ndl-btn:visited, a[type=submit] {
   margin-top: 0;
@@ -282,6 +345,106 @@ ul.conn li:last-child:before {
     /* last li's line */
    height: 12px; /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
 }
+
+/** ------------------------------MODALS------------------------------ **/
+
+img.logo-on-back {
+  width: 100%;
+  margin-top: 60px;
+  opacity: 0.2;
+  overflow: visible;
+}
+
+.modal, .modal a, .modal .nav-tabs .nav-link.active, .modal .form-control, .line-input:focus {
+  color: white;
+}
+
+.modal a.nav-link:before {
+  bottom: 0;
+}
+
+.modal-dialog {
+  max-width: 100%;
+  min-height: 100%;
+  height: auto;
+  margin: 0;
+  background: var(--violet-gr);
+  background-size: cover;
+}
+
+.modal-content {
+  background-color: transparent;
+  outline: none;
+  min-height: 100%;
+}
+
+.modal-body {
+  height: 100%;
+}
+
+.modal-content, .modal-header, .modal .nav-tabs {
+  border: none;
+  border-radius: 0;
+}
+
+.modal .nav-tabs .nav-link.active {
+  background-color: transparent;
+  border-bottom: none;
+  border-left: solid 1px white;
+  border-right: solid 1px white;
+  border-top: solid 1px white;
+  border-radius: 0;
+}
+
+.modal .nav-tabs li:first-child .nav-link.active {
+  border-left: none;
+}
+
+.modal .nav-tabs li:last-child .nav-link.active {
+  border-right: none;
+}
+
+.modal .nav-tabs .nav-link {
+  line-height: 30px;
+  padding: 10px 0px;
+}
+
+.modal .nav-tabs .nav-link h2{
+  text-align: center;
+  line-height: 35px;
+  padding-bottom: 5px;
+  vertical-align: middle;
+}
+
+.modal .nav-tabs .nav-link:not(.active), .modal .nav-tabs .nav-link:not(.active):hover {
+  border-bottom: solid 1px white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.modal form {
+  margin-top: 60px;
+}
+
+.line-input {
+  height: 50px;
+  background-color: transparent;
+  border-radius: 0;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 1px white;
+}
+
+.line-input::placeholder {
+  color: rgba(256,256,256,0.4);
+}
+
+.line-input:focus {
+  background-color: transparent;
+}
+
 
 /** ------------------------------HOME------------------------------ **/
 

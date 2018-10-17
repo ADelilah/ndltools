@@ -12,6 +12,7 @@
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/styles.css" rel="stylesheet">
+    <link href="vendor/checkboxes.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="vendor/fonts/MyFontsWebfontsKit.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 
@@ -20,22 +21,95 @@
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg static-top navbar-default">
+    <nav class="navbar navbar-expand-lg static-top navbar-default" id="mainNav">
       <div class="container">
         <a class="navbar-brand" href="index.html"><img src="assets/logo.svg" onerror="this.onerror=null; this.src='assets/logo.png'"></a>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="pages/login.html#login"><ion-icon name="log-in"></ion-icon></a>
+              <a class="nav-link icon" data-toggle="modal" data-target="#authModal"><ion-icon name="log-in"></ion-icon></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/login.html#login">Login</a>
+              <a class="nav-link" href="#login" data-toggle="modal" data-target="#authModal">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/login.html#signup">Sign up</a>
+              <a class="nav-link" href="#signup" data-toggle="modal" data-target="#authModal">Sign up</a>
             </li>
         </ul>
       </div>
     </nav>
+
+    <!-- Auth modal -->
+
+    <div class="modal fade" id="authModal" tabindex="-1" role="dialog" aria-labelledby="authModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            
+            <a class="ml-auto nav-link pt-0 pr-0 icon" type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><h3 class="text-right white-text"><ion-icon name="close" aria-hidden="true"></ion-icon></h3></a>
+          </div>
+
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-xl-4 col-lg-6 col-md-6 col-sm-8 col-xs-12 ml-auto mr-auto">
+
+                <ul class="nav nav-tabs nav-fill" id="authTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true"><h2 class="mb-0">Login</h2></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false"><h2 class="mb-0">Sign up</h2></a>
+                  </li> 
+                </ul>
+
+                <div class="tab-content" id="authContent">
+                      <div class="tab-pane pt-40 fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                        <form>
+                          <div class="form-group">
+                            <input type="email" class="line-input form-control" id="loginEmail" placeholder="Email">
+                          </div>
+                          <div class="form-group">
+                            <input type="password" class="line-input form-control" id="loginPassword" placeholder="Password">
+                          </div>
+
+                          <div class="d-flex justiry-content-between mt-40">
+                              <a class="btn ndl-btn white-btn mb-0 disabled" role="button" type="submit" href="#" id="logIn">Login</a>
+                              <a class="ml-auto" href="#">Forgot password?</a>
+                          </div>
+                        </form>
+                      </div>
+
+                      <div class="tab-pane pt-40 fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+                        <form>
+                          <div class="form-group"><input type="text" class="line-input form-control" id="suName" placeholder="Name"></div>
+                          <div class="form-group"><input type="text" class="line-input form-control" id="suPosition" placeholder="Position"></div>
+                          <div class="form-group"><input type="email" class="line-input form-control" id="suEmail" placeholder="Email"></div>
+                          <div class="form-group"><input type="text" class="line-input form-control" id="suPurpose" placeholder="Purpose of use (optional)"></div>
+                          <div class="form-group"><input type="password" class="line-input form-control" id="suPassword" placeholder="Password"></div>
+                          <div class="form-group mt-20">
+                            <label>
+                              <input type="checkbox" />
+                              <span class="lbl">I accept <a target="_blank" href="#" data-toggle="modal" data-target="#tosModal">Terms of service</a></span>
+                            </label>  
+                          </div>
+                          <div class="mt-40"><a class="btn ndl-btn white-btn mb-0 disabled" role="button" type="submit" href="#" id="signUp" aria-hidden="true">Sign up</a></div> 
+                        </form>
+                      </div>
+                </div>
+              </div>  
+            </div> <!-- end row -->
+
+            <div class="row">
+              <div class="col-xl-6 col-lg-8 col-md-9 col-sm-10 col-xs-12 ml-auto mr-auto">
+                <img class="logo-on-back" src="assets/logo.svg" onerror="this.onerror=null; this.src='assets/logo.png'">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Page Content -->
     <div class="container">
@@ -103,7 +177,7 @@
     <div class="container">
         <div class="row">
           <div class="col-md-3 col-sm-4 col-xs-3 d-flex align-items-center">
-            <a href="http://www.neurodatalab.com"><h3>Neurodata lab &copy; 2018</h3></a>
+            <a class="nav-link" href="http://www.neurodatalab.com">Neurodata lab &copy; 2018</a>
           </div>
           <div class="col-md-3 col-sm-2 col-xs-1"></div>
           <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
