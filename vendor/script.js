@@ -19,3 +19,16 @@ if (navigator.mediaDevices.getUserMedia) {
     console.log("Something went wrong!");
   });
 }
+
+function expandTextarea(id) {
+          document.getElementById(id).addEventListener('keyup', function() {
+              this.style.overflow = 'hidden';
+              this.style.height = 0;
+              this.style.height = this.scrollHeight + 'px';
+          }, false);
+      }
+
+      expandTextarea('supportTextarea');
+      expandTextarea('suCompany');
+      expandTextarea('suPosition');
+      expandTextarea('suPurpose');
