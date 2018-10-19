@@ -84,15 +84,15 @@ input[type="radio"]:checked ~ .radio-block-back {
 	margin-left: -10px;
 }
 
-.modal input[type=checkbox]+.lbl::before {
+#exModal input[type=checkbox]+.lbl::before {
 	background-color: transparent;
 }
 
-.modal input[type=checkbox]:checked+.lbl::before {
+#exModal input[type=checkbox]:checked+.lbl::before {
 	color: white;
 }
 
-.modal input[type=radio]:checked+.lbl::before {
+#exModal input[type=radio]:checked+.lbl::before {
 	color: var(--link);
 }
 

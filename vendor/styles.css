@@ -277,7 +277,7 @@ textarea:-ms-input-placeholder {
 
 /** ----------buttons---------- **/
 
-[type=submit], .modal [type=button] {
+[type=submit], #exModal [type=button] {
   -webkit-appearance: none;
 }
 
@@ -368,7 +368,7 @@ ul.conn li:last-child:before {
    height: 12px; /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
 }
 
-/** ------------------------------MODALS------------------------------ **/
+/** ------------------------------ex-MODALS------------------------------ **/
 
 img.logo-on-back {
   width: 100%;
@@ -377,14 +377,15 @@ img.logo-on-back {
   overflow: visible;
 }
 
-.modal, .modal a, .modal .nav-tabs .nav-link.active, .modal .form-control, .line-input:focus {
+#exModal, #exModal a, #exModal .nav-tabs .nav-link.active, #exModal .form-control, .line-input:focus {
   color: white;
 }
 
-.modal a.nav-link:before {
+#exModal a.nav-link:before {
   bottom: 0;
 }
 
+/**
 .modal-dialog {
   max-width: 100%;
   min-height: 100%;
@@ -408,8 +409,13 @@ img.logo-on-back {
   border: none;
   border-radius: 0;
 }
+**/
 
-.modal .nav-tabs .nav-link.active {
+#exModal .nav-tabs {
+  border-bottom: none;
+}
+
+#exModal .nav-tabs .nav-link.active {
   background-color: transparent;
   border-bottom: none;
   border-left: solid 1px white;
@@ -418,38 +424,38 @@ img.logo-on-back {
   border-radius: 0;
 }
 
-.modal .nav-tabs li:first-child .nav-link.active {
+#exModal .nav-tabs li:first-child .nav-link.active {
   border-left: none;
 }
 
-.modal .nav-tabs li:last-child .nav-link.active {
+#exModal .nav-tabs li:last-child .nav-link.active {
   border-right: none;
 }
 
-.modal .nav-tabs .nav-link {
+#exModal .nav-tabs .nav-link {
   line-height: 30px;
   padding: 10px 0px;
 }
 
-.modal .nav-tabs .nav-link h2{
+#exModal .nav-tabs .nav-link h2{
   text-align: center;
   line-height: 35px;
   padding-bottom: 5px;
   vertical-align: middle;
 }
 
-.modal .nav-tabs .nav-link:not(.active), .modal .nav-tabs .nav-link:not(.active):hover {
+#exModal .nav-tabs .nav-link:not(.active), #exModal .nav-tabs .nav-link:not(.active):hover {
   border-bottom: solid 1px white;
   border-top: none;
   border-left: none;
   border-right: none;
 }
 
-.modal form {
+#exModal form {
   margin-top: 60px;
 }
 
-.modal .form-check-label {
+#exModal .form-check-label {
   min-width: 140px;
 }
 

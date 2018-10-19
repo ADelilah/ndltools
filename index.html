@@ -26,127 +26,17 @@
         <a class="navbar-brand" href="index.html"><img src="assets/logo.svg" onerror="this.onerror=null; this.src='assets/logo.png'"></a>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link icon" data-toggle="modal" data-target="#authModal"><ion-icon name="log-in"></ion-icon></a>
+              <a class="nav-link icon" href="auth.html"><ion-icon name="log-in"></ion-icon></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#login" data-toggle="modal" data-target="#authModal">Login</a>
+              <a class="nav-link" href="auth.html">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#signup" data-toggle="modal" data-target="#authModal">Sign up</a>
+              <a class="nav-link" href="auth.html">Sign up</a>
             </li>
         </ul>
       </div>
     </nav>
-
-    <!-- Auth modal -->
-
-    <div class="modal fade" id="authModal" tabindex="-1" role="dialog" aria-labelledby="authModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-          <div class="modal-header">
-            
-            <a class="ml-auto nav-link pt-0 pr-0 icon" type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><h3 class="text-right"><ion-icon name="close" aria-hidden="true"></ion-icon></h3></a>
-          </div>
-
-          <div class="modal-body">
-
-            <div class="row">
-              <div class="col-xl-4 col-lg-6 col-md-6 col-sm-8 col-xs-12 ml-auto mr-auto">
-
-                <ul class="nav nav-tabs nav-fill" id="authTab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true"><h2 class="mb-0">Login</h2></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false"><h2 class="mb-0">Sign up</h2></a>
-                  </li> 
-                </ul>
-
-                <div class="tab-content" id="authContent">
-                      <div class="tab-pane pt-40 fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-                        <form>
-                          <div class="form-group">
-                            <input type="email" class="line-input form-control" id="loginEmail" placeholder="Email">
-                          </div>
-                          <div class="form-group">
-                            <input type="password" class="line-input form-control" id="loginPassword" placeholder="Password">
-                          </div>
-
-                          <div class="d-flex justiry-content-between align-items-center mt-40">
-                              <a class="btn ndl-btn white-btn mb-0 disabled" role="button" type="submit" href="#" id="logIn">Login</a>
-                              <a class="ml-auto" href="#forgot" data-toggle="modal" data-target="#forgotModal">Forgot password?</a>
-                          </div>
-                        </form>
-                      </div>
-
-                      <div class="tab-pane pt-40 fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
-                        <form>
-                          <div class="form-group"><input type="text" class="line-input form-control" id="suName" placeholder="Name"></div>
-                          <div class="form-group"><textarea type="text" class="line-input form-control" id="suCompany" placeholder="Company" ></textarea></div>
-                          <div class="form-group"><textarea type="text" class="line-input form-control" id="suPosition" placeholder="Position"></textarea></div>
-                          <div class="form-group"><input type="email" class="line-input form-control" id="suEmail" placeholder="Email"></div>
-                          <div class="form-group"><textarea type="text" class="line-input form-control" id="suPurpose" placeholder="Purpose of use (optional)"></textarea></div>
-                          <div class="form-group"><input type="password" class="line-input form-control" id="suPassword" placeholder="Password"></div>
-                          <div class="form-group mt-20">
-                            <label id="tos-check" class="w-100">
-                              <input type="checkbox" />
-                              <span class="lbl align-text-baseline w-100">I accept <a href="#" data-toggle="modal" data-target="#tosModal">Terms of service</a></span>
-                            </label>  
-                          </div>
-                          <div class="mt-40"><a class="btn ndl-btn white-btn mb-0 disabled" role="button" type="submit" href="#" id="signUp" aria-hidden="true">Sign up</a></div> 
-                        </form>
-                      </div>
-                </div>
-              </div>  
-            </div> <!-- end row -->
-
-            <div class="row">
-              <div class="col-xl-6 col-lg-8 col-md-9 col-sm-10 col-xs-12 ml-auto mr-auto">
-                <img class="logo-on-back" src="assets/logo.svg" onerror="this.onerror=null; this.src='assets/logo.png'">
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Forgot password modal -->
-
-    <div class="modal fade" id="forgotModal" tabindex="-1" role="dialog" aria-labelledby="forgotModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-          <div class="modal-header">
-            <a class="mr-auto" href="#login" data-toggle="modal" data-target="#authModal"><ion-icon name="arrow-round-back" class="align-text-top pr-1"></ion-icon>Back to login</a>
-            <a class="ml-auto nav-link pt-0 pr-0 icon" type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><h3 class="text-right"><ion-icon name="close" aria-hidden="true"></ion-icon></h3></a>
-          </div>
-
-        <div class="modal-body">
-
-            <div class="row">
-              <div class="col-xl-4 col-lg-6 col-md-6 col-sm-8 col-xs-12 ml-auto mr-auto">
-                <h2 class="">Reset password</h2>
-                <form class="mt-40">
-                  <div class="form-group"><input type="email" class="line-input form-control" id="loginEmail" placeholder="Email"></div>
-                  <div class="mt-40 mb-60">
-                    <a class="btn ndl-btn white-btn mb-0 disabled" role="button" type="submit" href="#" id="resetPassword">Send me reset email</a>
-                  </div>
-                </form>
-              </div>  
-            </div> <!-- end row -->
-
-            <div class="row">
-              <div class="col-xl-6 col-lg-8 col-md-9 col-sm-10 col-xs-12 ml-auto mr-auto">
-                <img class="logo-on-back" src="assets/logo.svg" onerror="this.onerror=null; this.src='assets/logo.png'">
-              </div>
-            </div>
-
-        </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Page Content -->
     <div class="container">
@@ -220,123 +110,14 @@
           </div>
           <div class="col-md-3 col-sm-2 col-xs-1"></div>
           <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
-              <a href="#tosModal" data-toggle="modal" data-target="#tosModal">Terms of service</a>
+              <a href="tos.html">Terms of service</a>
           </div>
           <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
-              <a href="#supportModal" data-toggle="modal" data-target="#supportModal">Contact support</a>
+              <a href="support.html">Contact support</a>
           </div>
         </div>
     </div>
   </footer>
-
-  <!-- TOS and support -->
-
-  <div class="modal fade" id="tosModal" tabindex="-1" role="dialog" aria-labelledby="tosModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-          <div class="modal-header">
-            
-            <a class="ml-auto nav-link pt-0 pr-0 icon" type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><h3 class="text-right white-text"><ion-icon name="close" aria-hidden="true"></ion-icon></h3></a>
-          </div>
-
-          <div class="modal-body">
-
-            <div class="row">
-              <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12 col-xs-12 ml-auto mr-auto">
-                <h2>Terms of service</h2>
-                <h3>Chapter 24</h3>
-                <p>Wide open and unguarded stand our gates,
-                And through them passes a wild motley throng.
-                Men from Volga and Tartar steppes.
-                Featureless figures from the Hoang-ho,
-                Malayan, Scythian, Teuton, Kelt and Slav,
-                Flying the Old World's poverty and scorn;
-                These bringing with them unknown gods and rites,
-                Those tiger passions here to stretch their claws,
-                In street and alley what strange tongues are these,
-                Accents of menace in our ear,
-                Voices that once the Tower of Babel knew.
-                -Thomas Bailey Aldrich, "The Unguarded Gates," 1882</p>
-                <p> One moment Shadow was riding the World's Largest Carousel, holding on to his eagle-headed tiger, and then the red and white lights of the carousel stretched and shivered and went out, and he was falling through an ocean of stars, while the mechanical waltz was replaced by a pounding rhythmic roll and crash, as of cymbals or the breakers on the shores of a far ocean.
-                The only light was starlight, but it illuminated everything with a cold clarity. Beneath him his mount stretched and padded, its warm fur under his left hand, its feathers beneath his right.</p>
-                <h3>"It's a good ride, isn't it?"</h3>
-                <p> The voice came from behind him, in his ears and in his mind.
-                Shadow turned, slowly, streaming images of himself as he moved, frozen moments, each him captured in a fraction of a second, every tiny movement lasting for an infinite period. The images that reached his mind made no sense: it was like seeing the world through the multifaceted jeweled eyes of a dragonfly, but each facet saw something completely different, and he was unable to combine the things he was seeing, or thought he was seeing, into a whole that made any sense.
-                He was looking at Mr. Nancy, an old black man with a pencil mustache, in his check sports jacket and his lemon-yellow gloves, riding a carousel lion as it rose and lowered, high in the air; and, at the same time, in the same place, he saw a jeweled spider as high as a horse, its eyes an emerald nebula, strutting, staring down at him; and simultaneously he was looking at an extraordinarily tall man with teak-colored skin and three sets of arms, wearing a flowing ostrich-feather headdress, his face painted with red stripes, riding an irritated golden lion, two of his six hands holding on tightly to the beast's mane; and he was also-seeing a young black boy, dressed in rags, his left foot all swollen and crawling with blackflies; and last of all, and behind all these things, Shadow was looking at a tiny brown spider, hiding under a withered ocher leaf.
-                Shadow saw all these things, and he knew they were the same thing.</p>
-                <div class="mt-40"><a class="btn ndl-btn white-btn mb-0 mt-40" type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">Got it</a></div>
-                
-              </div>  
-            </div> <!-- end row -->
-
-            <div class="row">
-              <div class="col-xl-6 col-lg-8 col-md-9 col-sm-10 col-xs-12 ml-auto mr-auto">
-                <img class="logo-on-back" src="assets/logo.svg" onerror="this.onerror=null; this.src='assets/logo.png'">
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-  </div>
-
-  <div class="modal fade" id="supportModal" tabindex="-1" role="dialog" aria-labelledby="supportModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-          <div class="modal-header">
-            
-            <a class="ml-auto nav-link pt-0 pr-0 icon" type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><h3 class="text-right white-text"><ion-icon name="close" aria-hidden="true"></ion-icon></h3></a>
-          </div>
-
-          <div class="modal-body">
-            <div class="container">
-              <form>
-                <div class="row">
-                  <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12 ml-auto mr-auto">
-                    <h2>Contact support</h2>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12 ml-auto">
-                    <div class="form-check pl-0 d-flex flex-column mb-40" id="support-case">
-                      <label class="form-check-label mb-20" for="caseRadios1">
-                          <input class="form-check-input" type="radio" name="caseRadios" id="frameRadios1" value="suggestion" checked/>
-                          <span class="lbl h3-inl">Suggestion</span>
-                      </label>
-                      <label class="form-check-label mb-20" for="caseRadios2">
-                          <input class="form-check-input" type="radio" name="caseRadios" id="caseRadios2" value="problem"/>
-                          <span class="lbl h3-inl">Problem report</span>
-                      </label>
-                      <label class="form-check-label mb-20" for="caseRadios3">
-                          <input class="form-check-input" type="radio" name="caseRadios" id="caseRadios3" value="delete"/>
-                          <span class="lbl h3-inl">Delete account</span>
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-xs-12 mr-auto">
-                    <div class="form-group">                   
-                      <textarea class="form-control line-input" id="supportTextarea" rows="1" placeholder="Your message"></textarea>
-                    </div>
-                    <div class="mt-40"><a class="btn ndl-btn white-btn mb-0 disabled" role="button" type="submit" href="#" id="signUp" aria-hidden="true">Send</a></div> 
-                  </div>
-                </div> <!-- end row -->
-              </form>
-                
-              
-            </div> <!-- end container -->
-            <div class="row">
-              <div class="col-xl-6 col-lg-8 col-md-9 col-sm-10 col-xs-12 ml-auto mr-auto">
-                <img class="logo-on-back" src="assets/logo.svg" onerror="this.onerror=null; this.src='assets/logo.png'">
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-  </div>
 
 
     <!-- Bootstrap core JavaScript -->
