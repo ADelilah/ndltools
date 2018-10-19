@@ -36,7 +36,6 @@ input[type=radio]+.lbl::before {
 		vertical-align: text-bottom;
 		text-align: center;
 		color: var(--light-violet);
-		vertical-align: middle;
 }
 
 input[type=radio]+.lbl::before {
@@ -44,6 +43,7 @@ input[type=radio]+.lbl::before {
 		font-family: serif;
 		font-size: 54px;
 		line-height: 19px;
+		vertical-align: middle;
 }
 
 input[type=checkbox]:checked+.lbl::before {

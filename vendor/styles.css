@@ -171,13 +171,15 @@ textarea.form-control {
   height: 50px;
 }
 
-::-moz-placeholder { 
+textarea::-moz-placeholder { 
     line-height:40px;
 }
-::-webkit-input-placeholder {
+
+textarea::-webkit-input-placeholder {
     line-height:40px;
 }
-:-ms-input-placeholder {
+
+textarea:-ms-input-placeholder {
     line-height:40px;
 } 
 
@@ -468,7 +470,6 @@ img.logo-on-back {
 .line-input:focus {
   background-color: transparent;
 }
-
 
 /** ------------------------------HOME------------------------------ **/
 

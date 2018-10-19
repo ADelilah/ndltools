@@ -73,9 +73,9 @@
                             <input type="password" class="line-input form-control" id="loginPassword" placeholder="Password">
                           </div>
 
-                          <div class="d-flex justiry-content-between mt-40">
+                          <div class="d-flex justiry-content-between align-items-center mt-40">
                               <a class="btn ndl-btn white-btn mb-0 disabled" role="button" type="submit" href="#" id="logIn">Login</a>
-                              <a class="ml-auto" href="#">Forgot password?</a>
+                              <a class="ml-auto" href="#forgot" data-toggle="modal" data-target="#forgotModal">Forgot password?</a>
                           </div>
                         </form>
                       </div>
@@ -89,9 +89,9 @@
                           <div class="form-group"><textarea type="text" class="line-input form-control" id="suPurpose" placeholder="Purpose of use (optional)"></textarea></div>
                           <div class="form-group"><input type="password" class="line-input form-control" id="suPassword" placeholder="Password"></div>
                           <div class="form-group mt-20">
-                            <label>
+                            <label id="tos-check" class="w-100">
                               <input type="checkbox" />
-                              <span class="lbl">I accept <a target="_blank" href="#" data-toggle="modal" data-target="#tosModal">Terms of service</a></span>
+                              <span class="lbl align-text-baseline w-100">I accept <a href="#" data-toggle="modal" data-target="#tosModal">Terms of service</a></span>
                             </label>  
                           </div>
                           <div class="mt-40"><a class="btn ndl-btn white-btn mb-0 disabled" role="button" type="submit" href="#" id="signUp" aria-hidden="true">Sign up</a></div> 
@@ -108,6 +108,42 @@
             </div>
 
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot password modal -->
+
+    <div class="modal fade" id="forgotModal" tabindex="-1" role="dialog" aria-labelledby="forgotModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <a class="mr-auto" href="#login" data-toggle="modal" data-target="#authModal"><ion-icon name="arrow-round-back" class="align-text-top pr-1"></ion-icon>Back to login</a>
+            <a class="ml-auto nav-link pt-0 pr-0 icon" type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"><h3 class="text-right"><ion-icon name="close" aria-hidden="true"></ion-icon></h3></a>
+          </div>
+
+        <div class="modal-body">
+
+            <div class="row">
+              <div class="col-xl-4 col-lg-6 col-md-6 col-sm-8 col-xs-12 ml-auto mr-auto">
+                <h2 class="">Reset password</h2>
+                <form class="mt-40">
+                  <div class="form-group"><input type="email" class="line-input form-control" id="loginEmail" placeholder="Email"></div>
+                  <div class="mt-40 mb-60">
+                    <a class="btn ndl-btn white-btn mb-0 disabled" role="button" type="submit" href="#" id="resetPassword">Send me reset email</a>
+                  </div>
+                </form>
+              </div>  
+            </div> <!-- end row -->
+
+            <div class="row">
+              <div class="col-xl-6 col-lg-8 col-md-9 col-sm-10 col-xs-12 ml-auto mr-auto">
+                <img class="logo-on-back" src="assets/logo.svg" onerror="this.onerror=null; this.src='assets/logo.png'">
+              </div>
+            </div>
+
+        </div>
         </div>
       </div>
     </div>
