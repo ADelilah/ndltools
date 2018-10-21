@@ -139,6 +139,7 @@ a.nav-link:before {
 .mb-40 {margin-bottom: 40px;}
 .mt-20 {margin-top: 20px;}
 .mt-40 {margin-top: 40px;}
+.mt-60 {margin-top: 60px;}
 
 .inactive, .btn.disabled {
   opacity: 0.4;
@@ -378,7 +379,12 @@ img.logo-on-back {
   overflow: visible;
 }
 
-#exModal, #exModal a, #exModal .nav-tabs .nav-link.active, #exModal .form-control, .line-input:focus {
+#logo-404 {
+  height: 100px;
+  margin-top: 40px;
+}
+
+#exModal, #exModal a:not(.white-btn:hover), #exModal .nav-tabs .nav-link.active, #exModal .form-control, .line-input:focus {
   color: white;
 }
 
