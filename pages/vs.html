@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Emotion recognition tool by Neurodata lab</title>
+    <title>Voice splitter tool by Neurodata lab</title>
 
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../vendor/styles.css" rel="stylesheet">
@@ -40,22 +40,21 @@
       <div class="row white-text tool-head">
 
         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-          <h1>Emotion recognition</h1>
+          <h1>Voice Splitter</h1>
           <h2>Demo tool</h2>
         </div>
 
         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 tool-description">
           <ul class="conn list-unstyled">
-            <li><span class="bold">7 emotions</span>: anger, disgust, surprise, sadness, happiness, fear/anxiety, neutral</li>
-            <li>From <span class="bold">3 modalities</span>: face, eyes and voice</li>
-            <li>Continuous emotion prediction for <span class="bold">up to 4 people</span> in the frame</li>
+            <li>Identifies <span class="bold">who and when</span> is speaking</li>
+            <li>Audio or video with <span class="bold">up to 3 people speaking</span></li>
+            <li>Returns an audio track for each speaker and a noise track with laugh, applauds, etc. </li>
           </ul>
         </div>
         </div> <!-- end row -->
 
         <nav class="nav nav-pills nav-fill" id="toolTabs" role="tablist">
-          <a class="nav-item nav-link active" id="file-tab" data-toggle="pill" href="#file" role="tab" aria-controls="file" aria-selected="true">Pre-recorded</a>
-          <a class="nav-item nav-link" id="web-tab" data-toggle="pill" href="#web" role="tab" aria-controls="web" aria-selected="false">Real-time</a>
+          <a class="nav-item nav-link active" id="file-tab" data-toggle="pill" href="#file" role="tab" aria-controls="file" aria-selected="true">Your file</a>
           <a class="nav-item nav-link" id="sample-tab" data-toggle="pill" href="#sample" role="tab" aria-controls="sample" aria-selected="false">Example</a>
         </nav>
     </div> <!-- end head container -->
@@ -64,95 +63,70 @@
       <div class="container">
 
         <div class="tab-content">
-          <div class="tab-pane active pb-40" id="file" role="tabpanel" aria-labelledby="file-tab">
+          <div class="tab-pane active" id="file" role="tabpanel" aria-labelledby="file-tab">
             <div class="row">
 
-              <div class="col-lg-9 col-md-7 col-sm-12 col-xs-12">
+              <div class="col-xl-6 col-lg-5 col-md-12 col-sm-12 col-xs-12">
                   <div class="custom-file">
                     <div class="error" id=fileValErrorER>Maximum file size is 100Mb.</div>
                     <input type="file" class="custom-file-input" id="dragdrop">
-                    <label class="custom-file-label d-flex justify-content-center align-items-center" for="dragdrop"><div class=""><p>Drop a video</p><p>or</p><a>choose from device</a></div></label>
+                    <label class="custom-file-label d-flex justify-content-center align-items-center" for="dragdrop"><div class=""><p>Drop audio or video</p><p>or</p><a>choose from device</a></div></label>
                   </div>
               </div>
 
-              <div class="col-lg-3 col-md-5 col-sm-12 col-xs-12 requirements">
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                <div class="form">
+                    <div class="form-check pl-0">
+                      <label class="radio-block rb-21 form-check-label" for="frameRadios1">
+                        <input class="form-check-input" type="radio" name="frameRadios" id="frameRadios1" value="auto" checked/>
+                        <div class="lbl">
+                          <span class="h3-inl mr-auto">Autodetect</span>
+                        </div>
+                        <div class="radio-block-back w-block"></div>
+                      </label>
+                      <label class="radio-block rb-21 form-check-label" for="frameRadios2">
+                        <input class="form-check-input" type="radio" name="frameRadios" id="frameRadios2" value="2"/>
+                        <div class="lbl">
+                          <span class="h3-inl lbl">2 speakers</span>
+                        </div>
+                        <div class="radio-block-back w-block"></div>
+                      </label>
+                      <label class="radio-block form-check-label" for="frameRadios3">
+                        <input class="form-check-input" type="radio" name="frameRadios" id="frameRadios3" value="3"/>
+                        <div class="lbl">
+                          <span class="h3-inl lbl">3 speakers</span>
+                        </div>
+                        <div class="radio-block-back w-block"></div>
+                      </label>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <ul class="list-unstyled">
-                  <li>• mp4, mov, avi, mpg</li>
+                  <li>• mp4, mov, avi, mpg, wav</li>
                   <li>• 10 sec to 10 min</li>
                   <li>• Min 600x320px</li>
                   <li>• Max 100Mb</li>
-                  <li>• Max 7 people</li>
+                  <li>• Max 4 people</li>
                   <li>• No VPN</li>
                   <li>• English only</li>
+                  <li>• Speaker shouldn't: modulate voice, change mic, speak much more than others</li>
                 </ul>
-                <a class="btn ndl-btn" id="spec" href="#">Get specification</a>
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="spec-with-line d-flex align-items-center justify-content-center">
+                  <a href="#">Get specification</a>
+                </div>
               </div>
 
             </div> <!-- end row -->
           </div><!-- end file tab -->
 
-          <div class="tab-pane pb-40" id="web" role="tabpanel" aria-labelledby="web-tab">
-
-             <!---------- for BUSY tool only ------------>
-             <div class="row busy-tool"> 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                  <div>
-                    <div><p>Rush hour! Tool is currently busy, please, wait.</p></div>
-                    <div><h2 id="queueERweb" class="mb-0">2</h2><p class="mb-0">people in queue</p></div>
-                  </div>
-                </div>
-             </div> <!-- end row for busy tool -->
-
-             <div class="row" id="uiERweb"> 
-
-              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <div class="pb-20 h-100">
-                <div class="embed-responsive embed-responsive-16by9 h-100">
-                  <p id="text-over-video">Tool needs access to your webcam</p>
-                  <video autoplay="false" class="embed-responsive-item" id="webcamVideo"></video>
-                </div>
-                </div>
-              </div>
-
-
-              <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                <div class="form">
-                    <div class="form-check pl-0">
-                      <label class="radio-block form-check-label" for="frameRadios1">
-                        <input class="form-check-input" type="radio" name="frameRadios" id="frameRadios1" value="single" checked/>
-                        <div class="lbl">
-                          <span class="h3-inl mr-auto">Single-frame</span>
-                          <div>Less accurate. Real-time.</div>
-                        </div>
-                        <div class="radio-block-back w-block"></div>
-                      </label>
-                      <label class="radio-block form-check-label" for="frameRadios2">
-                        <input class="form-check-input" type="radio" name="frameRadios" id="frameRadios2" value="multi"/>
-                        <div class="lbl">
-                          <span class="h3-inl lbl">Multi-frame</span>
-                          <div>More accurate. Small delay in recognation may be expected.</div>
-                        </div>
-                        <div class="radio-block-back w-block"></div>
-                      </label> 
-                    </div>
-                    <a class="btn ndl-btn w-100 mb-40" role="button" type="submit" id="start" href="er-2.html">Start</a>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                  <ul class="list-unstyled">
-                    <li>• 60 s demonstration</li>
-                    <li>• Unlimited runs</li>
-                    <li>• Max 4 people</li>
-                  </ul>
-                  <a class="btn ndl-btn mb-40" id="spec" href="#">Get specification</a>
-              </div>
-
-             </div><!-- end row -->
-          </div><!-- end web tab -->
-
           <div class="tab-pane pb-60" id="sample" role="tabpanel" aria-labelledby="sample-tab">
             <div class="row m-0">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><h3 class="pb-20">Video examples</h3></div>
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
                   <div class="hover-fade d-flex justify-content-center align-items-center">
                     <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
@@ -227,6 +201,54 @@
                   </div>
                   <img class="img-fluid" src="../assets/previews/12.png">
                 </div>
+
+            </div> <!-- end row -->
+            <div class="row m-0">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><h3 class="pb-20 pt-60">Audio examples</h3></div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0 audio-block d-flex align-items-end">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <div>
+                    <h3>ARMCHAIR EXPERT WITH DAX SHEPARD</h3>
+                    <p class="mb-0">E45 - Yuval Noah Harari</p>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/a1.jpg">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0 audio-block d-flex align-items-end">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <div>
+                    <h3>THE DAILY - A new climate Tipping point</h3>
+                    <p class="mb-0">Oct 19, 2018 - Coral Davenport, William D. Nordhaus</p>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/a2.jpg">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0 audio-block d-flex align-items-end">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <div>
+                    <h3>Barcelona</h3>
+                    <p class="mb-0">Freddie Mercury & Montserrat Caballe</p>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/a3.jpg">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0 audio-block d-flex align-items-end">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <div>
+                    <h3>Aaron Mahnke’s Cabinet of Curiosities</h3>
+                    <p class="mb-0">Trailer</p>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/a4.png">
+                </div>
+                
+
+
 
             </div> <!-- end row -->
           </div>
