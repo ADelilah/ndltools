@@ -100,7 +100,7 @@ a:before {
   transition: width 0.4s;
 }
 
-a:not(.icon):not(.btn):not(.active):not(.navbar-brand):not([id^='speaker']):hover:before {
+a:not(.icon):not(.btn):not(.active):not(.navbar-brand):not([id^='speaker']):not([id^='watch']):hover:before {
   width: 100%;
   left: 0;
   right: 0;
@@ -131,7 +131,9 @@ a.nav-link:before {
 
 .pb-20 {padding-bottom: 20px;}
 .pl-20 {padding-left: 20px;}
+.pl-50 {padding-left: 50px;}
 .pb-40 {padding-bottom: 40px;}
+.pt-20 {padding-top: 20px;}
 .pt-40 {padding-top: 40px;}
 .pt-60 {padding-top: 60px;}
 .pb-60 {padding-bottom: 60px;}
@@ -330,7 +332,37 @@ textarea:-ms-input-placeholder {
   border-color: var(--link);
 }
 
-/** ----connected bullets----- **/
+/** -------------------------lists--------------------- **/
+
+ul .bullet {
+  list-style-type: disc;
+}
+
+.bullet {
+  padding-left: 20px;
+}
+
+.bullet .conn {
+  padding-left: 0px;
+}
+
+.bullet .conn li {
+  padding-bottom: 0;
+
+}
+
+.bullet .conn li:after {
+  margin-left: 2px;
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.bullet .conn li:before {
+  border-left-color: var(--text);
+  left: -14px;
+}
+
+/** ---------connected bullets----------- **/
 
 ul.conn li {
     position:relative; /* so that pseudoelements are positioned relatively to their "li"s*/
@@ -649,6 +681,7 @@ img.logo-on-back {
 .custom-file-label {
   position: absolute;
   border: dashed 1px;
+  border-radius: 0px;
   border-spacing: 0;
   border-color: var(--link);
   margin-bottom: 0;
@@ -787,7 +820,7 @@ img.logo-on-back {
   display: inline;
 }
 
-.steps li {
+.steps > li {
   position: relative;
   padding-top: 20px;
 }
@@ -804,7 +837,7 @@ img.logo-on-back {
   z-index: 2;
 }
 
-.steps li::after {
+.steps > li::after {
   content: '';
   position: absolute;
   background: var(--light-violet);

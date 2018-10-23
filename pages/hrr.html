@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Heart and respiration tool by Neurodata lab</title>
+
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/styles.css" rel="stylesheet">
+    <link href="../vendor/checkboxes.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../vendor/fonts/MyFontsWebfontsKit.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg static-top navbar-default">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html"><img src="../assets/logo.svg" onerror="this.onerror=null; this.src='../assets/logo.png'"></a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="login.html#login"><ion-icon name="contact"></ion-icon></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">Username</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row white-text tool-head">
+
+        <div class="col-xl-5 col-lg-6 col-md-7 col-sm-12 col-xs-12">
+          <h1>Heart & Respiration</h1>
+          <h2>Demo tool</h2>
+        </div>
+
+        <div class="col-xl-7 col-lg-6 col-md-5 col-sm-12 col-xs-12 tool-description">
+          <ul class="conn list-unstyled">
+            <li>Registers changes in heart and respiration rates</li>
+            <li>Tracks pixel color change on the face</li>
+          </ul>
+        </div>
+        </div> <!-- end row -->
+
+        <nav class="nav nav-pills nav-fill" id="toolTabs" role="tablist">
+          <a class="nav-item nav-link" id="web-tab" data-toggle="pill" href="#web" role="tab" aria-controls="web" aria-selected="false">Webcam</a>
+          <a class="nav-item nav-link" id="sample-tab" data-toggle="pill" href="#sample" role="tab" aria-controls="sample" aria-selected="false">Example</a>
+        </nav>
+    </div> <!-- end head container -->
+
+    <div class="tab-back">
+      <div class="container">
+
+        <div class="tab-content">
+          <div class="tab-pane pb-40 active" id="web" role="tabpanel" aria-labelledby="web-tab">
+
+             <!---------- for BUSY tool only ------------>
+             <div class="row busy-tool"> 
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div>
+                    <div><p>Rush hour! Tool is currently busy, please, wait.</p></div>
+                    <div><h2 id="queueERweb" class="mb-0">2</h2><p class="mb-0">people in queue</p></div>
+                  </div>
+                </div>
+             </div> <!-- end row for busy tool -->
+
+             <div class="row"> 
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <ul class="steps list-unstyled">
+                  <li id="hrrStep1">
+                    <span>1</span>
+                    <h3>Setup</h3> 
+                    <div class="container pr-0 pl-50 pt-20">
+                      <div class="row" id="uiHRRweb">
+
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="pb-20 h-100">
+                            <div class="embed-responsive embed-responsive-16by9 h-100">
+                              <p id="text-over-video">Tool needs access to your webcam</p>
+                              <video autoplay="false" class="embed-responsive-item" id="webcamVideo"></video>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                          <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-xs-12">
+                              <div class="form">
+                                  <div class="form-check pl-0">
+                                    <label class="radio-block rb-21 form-check-label" for="pulseRadios1">
+                                      <input class="form-check-input" type="radio" name="pulseRadios" id="pulseRadios1" value="pulse" checked/>
+                                      <div class="lbl">
+                                        <span class="h3-inl mr-auto">Pulse only (faster)</span>
+                                      </div>
+                                      <div class="radio-block-back w-block"></div>
+                                    </label>
+                                    <label class="radio-block rb-21 form-check-label" for="pulseRadios2">
+                                      <input class="form-check-input" type="radio" name="pulseRadios" id="pulseRadios2" value="both"/>
+                                      <div class="lbl">
+                                        <span class="h3-inl lbl">Pulse and respiration frequency</span>
+                                      </div>
+                                      <div class="radio-block-back w-block"></div>
+                                    </label>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-xs-12">
+                              <ul class="bullet">
+                                <li>Max 1 person in the frame</li>
+                                <li>Enough light in the room</li>
+                                <li>Sit straight and still</li>
+                              </ul>
+                          </div>
+                          </div>
+                        </div>
+                      </div> <!-- end uiHRRweb row -->
+                    </div>
+                  </li>
+                  <li id="hrrStep2">
+                    <span>2</span>
+                    <h3>Choose a video to watch while tool is working</h3>
+                    <div class="container pr-0 pl-50 pt-20">
+                      <ul class="nav nav-tabs mt-0" id="chartTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="watch-calming-tab" data-toggle="tab" href="#calming" role="tab" aria-controls="calming" aria-selected="true">Calming</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="watch-cheerful-tab" data-toggle="tab" href="#cheerful" role="tab" aria-controls="cheerful" aria-selected="false">Cheerful</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="watch-stressful-tab" data-toggle="tab" href="#stressful" role="tab" aria-controls="stressful" aria-selected="false">Stressful</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content" id="watchTabs">
+                        <div class="tab-pane pt-40 fade show active" id="calming" role="tabpanel" aria-labelledby="watch-calming-tab">
+                          <div class="row m-0">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                              <div class="hover-fade d-flex justify-content-center align-items-center">
+                                <a class="btn ndl-btn white-btn m-0" href="#">Start</a>
+                              </div>
+                              <img class="img-fluid" src="../assets/previews/w1.jpg">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                              <div class="hover-fade d-flex justify-content-center align-items-center">
+                                <a class="btn ndl-btn white-btn m-0" href="#">Start</a>
+                              </div>
+                              <img class="img-fluid" src="../assets/previews/w2.jpg">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                              <div class="hover-fade d-flex justify-content-center align-items-center">
+                                <a class="btn ndl-btn white-btn m-0" href="#">Start</a>
+                              </div>
+                              <img class="img-fluid" src="../assets/previews/w3.jpg">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                              <div class="hover-fade d-flex justify-content-center align-items-center">
+                                <a class="btn ndl-btn white-btn m-0" href="#">Start</a>
+                              </div>
+                              <img class="img-fluid" src="../assets/previews/w4.jpg">
+                            </div>
+                          </div><!-- end calming row -->
+                        </div>
+                        <div class="tab-pane pt-40 fade" id="cheerful" role="tabpanel" aria-labelledby="watch-cheerful-tab">
+                          <div class="row m-0">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                              <div class="hover-fade d-flex justify-content-center align-items-center">
+                                <a class="btn ndl-btn white-btn m-0" href="#">Start</a>
+                              </div>
+                              <img class="img-fluid" src="../assets/previews/w1.jpg">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                              <div class="hover-fade d-flex justify-content-center align-items-center">
+                                <a class="btn ndl-btn white-btn m-0" href="#">Start</a>
+                              </div>
+                              <img class="img-fluid" src="../assets/previews/w2.jpg">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                              <div class="hover-fade d-flex justify-content-center align-items-center">
+                                <a class="btn ndl-btn white-btn m-0" href="#">Start</a>
+                              </div>
+                              <img class="img-fluid" src="../assets/previews/w3.jpg">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                              <div class="hover-fade d-flex justify-content-center align-items-center">
+                                <a class="btn ndl-btn white-btn m-0" href="#">Start</a>
+                              </div>
+                              <img class="img-fluid" src="../assets/previews/w4.jpg">
+                            </div>
+                          </div><!-- end cheerful row -->
+                        </div>
+                        <div class="tab-pane pt-40 fade" id="stressful" role="tabpanel" aria-labelledby="watch-stressful-tab">
+                          <div class="row m-0">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                              <div class="hover-fade d-flex justify-content-center align-items-center">
+                                <a class="btn ndl-btn white-btn m-0" href="#">Start</a>
+                              </div>
+                              <img class="img-fluid" src="../assets/previews/1.png">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                              <div class="hover-fade d-flex justify-content-center align-items-center">
+                                <a class="btn ndl-btn white-btn m-0" href="#">Start</a>
+                              </div>
+                              <img class="img-fluid" src="../assets/previews/2.png">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                              <div class="hover-fade d-flex justify-content-center align-items-center">
+                                <a class="btn ndl-btn white-btn m-0" href="#">Start</a>
+                              </div>
+                              <img class="img-fluid" src="../assets/previews/3.png">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                              <div class="hover-fade d-flex justify-content-center align-items-center">
+                                <a class="btn ndl-btn white-btn m-0" href="#">Start</a>
+                              </div>
+                              <img class="img-fluid" src="../assets/previews/4.png">
+                            </div>
+                          </div><!-- end stressful row -->
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="spec-with-line d-flex align-items-center justify-content-center">
+                  <a href="#">Get specification</a>
+                </div>
+              </div>
+
+            </div><!-- end step row -->
+
+          </div><!-- end web tab -->
+
+          <div class="tab-pane pb-60" id="sample" role="tabpanel" aria-labelledby="sample-tab">
+            <div class="row m-0">
+
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/13.png">
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/3.png">
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/5.png">
+                </div>
+               
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 p-0">
+                  <div class="hover-fade d-flex justify-content-center align-items-center">
+                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                  </div>
+                  <img class="img-fluid" src="../assets/previews/12.png">
+                </div>
+
+            </div> <!-- end row -->
+            
+          </div>
+        </div>
+
+      </div> <!-- end tab container -->
+    </div><!-- end tab background -->
+
+    <footer class="page-footer">
+      <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-3 d-flex align-items-center">
+              <a class="nav-link" href="http://www.neurodatalab.com">Neurodata lab &copy; 2018</a>
+            </div>
+            <div class="col-md-3 col-sm-2 col-xs-1"></div>
+            <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
+                <a href=#>Terms of service</a>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
+                <a href=#>Contact support</a>
+            </div>
+          </div>
+      </div>
+    </footer>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+    <script src="../vendor/script.js"></script>
+
+  </body>
+
+</html>

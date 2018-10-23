@@ -68,7 +68,7 @@
 
               <div class="col-xl-6 col-lg-5 col-md-12 col-sm-12 col-xs-12">
                   <div class="custom-file">
-                    <div class="error" id=fileValErrorER>Maximum file size is 100Mb.</div>
+                    <div class="error" id=fileValErrorVS>Maximum file size is 100Mb.</div>
                     <input type="file" class="custom-file-input" id="dragdrop">
                     <label class="custom-file-label d-flex justify-content-center align-items-center" for="dragdrop"><div class=""><p>Drop audio or video</p><p>or</p><a>choose from device</a></div></label>
                   </div>
@@ -77,22 +77,22 @@
               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
                 <div class="form">
                     <div class="form-check pl-0">
-                      <label class="radio-block rb-21 form-check-label" for="frameRadios1">
-                        <input class="form-check-input" type="radio" name="frameRadios" id="frameRadios1" value="auto" checked/>
+                      <label class="radio-block rb-21 form-check-label" for="speakerRadios1">
+                        <input class="form-check-input" type="radio" name="speakerRadios" id="speakerRadios1" value="auto" checked/>
                         <div class="lbl">
                           <span class="h3-inl mr-auto">Autodetect</span>
                         </div>
                         <div class="radio-block-back w-block"></div>
                       </label>
-                      <label class="radio-block rb-21 form-check-label" for="frameRadios2">
-                        <input class="form-check-input" type="radio" name="frameRadios" id="frameRadios2" value="2"/>
+                      <label class="radio-block rb-21 form-check-label" for="speakerRadios2">
+                        <input class="form-check-input" type="radio" name="speakerRadios" id="speakerRadios2" value="2"/>
                         <div class="lbl">
                           <span class="h3-inl lbl">2 speakers</span>
                         </div>
                         <div class="radio-block-back w-block"></div>
                       </label>
-                      <label class="radio-block form-check-label" for="frameRadios3">
-                        <input class="form-check-input" type="radio" name="frameRadios" id="frameRadios3" value="3"/>
+                      <label class="radio-block form-check-label" for="speakerRadios3">
+                        <input class="form-check-input" type="radio" name="speakerRadios" id="speakerRadios3" value="3"/>
                         <div class="lbl">
                           <span class="h3-inl lbl">3 speakers</span>
                         </div>
@@ -103,15 +103,13 @@
               </div>
 
               <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                <ul class="list-unstyled">
-                  <li>• mp4, mov, avi, mpg, wav</li>
-                  <li>• 10 sec to 10 min</li>
-                  <li>• Min 600x320px</li>
-                  <li>• Max 100Mb</li>
-                  <li>• Max 4 people</li>
-                  <li>• No VPN</li>
-                  <li>• English only</li>
-                  <li>• Speaker shouldn't: modulate voice, change mic, speak much more than others</li>
+                <ul class="bullet">
+                  <li>mp4, mov, avi, mpg: <ul class="conn"><li>10s to 10m</li><li>Min 600x320px</li></ul></li>
+                  <li>wav: <ul class="conn"><li>30s to 30m</li><li>Min 16kGh</li></ul></li>
+                  <li>Max 100Mb</li>
+                  <li>Max 3 people</li>
+                  <li>No VPN</li>
+                  <li>European languages only</li>
                 </ul>
               </div>
 
