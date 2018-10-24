@@ -411,6 +411,10 @@ img.logo-on-back {
   overflow: visible;
 }
 
+#logo-maintenance {
+  opacity: 1;
+}
+
 #logo-404 {
   height: 100px;
   margin-top: 40px;
