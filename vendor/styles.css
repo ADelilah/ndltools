@@ -1,28 +1,43 @@
 :root {
-  --violet-gr: linear-gradient(-45deg, #452E61 0%, #909DDE 100%);
-  --light-violet-gr: linear-gradient(90deg, #E2DBEA 0%, #B4BDF0 100%);
+  --violet-gr: linear-gradient(-45deg, #452E61 0%, #909DDE 100%); /*linear-gradient(-45deg, #8F87B5 0%, #4F3D77 100%); */
+  --light-violet-gr: linear-gradient(90deg, #E2DBEA 0%, #B4A8CC 100%); 
   --footer: #452E61;
   --back: #F2F0FE;
-  --text: #344C5B;
-  --link: #687AE0;
-  --light-violet: #C4B7D5;
-  --super-light-violet: #EDEAF7;
+  --text: #575266;
+  --link: #816DC8;
+  --light-violet: #B4A8CC; /* #C4B7D5; */
   --dark-violet: #452E61;
-  --light-grey: #E1E5EE;
 
-  --happy: linear-gradient(-45deg, #B87290 3%, #FB9DC5 97%);
-  --lichi: #B87290;
-  --error: #FB9DC5;
-  --surprised: linear-gradient(-45deg, #72B7AB 3%, #9CFBEA 97%);
-  --lime: #72B7AB;
-  --disgusted: linear-gradient(-45deg, #B6B072 3%, #FDF496 97%);
-  --melon: #B6B072;
-  --angry: linear-gradient(-45deg, #B67D72 3%, #FDAF9F 97%);
-  --cherry: #B67D72;
-  --anxious: linear-gradient(-45deg, #A570B8 3%, #E59DFF 97%);
-  --grape: #A570B8;
-  --sad: linear-gradient(-45deg, #708CB8 3%, #A5C9FF 97%);
-  --plum: #708CB8;
+  --neutral: linear-gradient(0deg, #E1E5EE 0%, #BBBCC8 100%);
+  --light-grey: #E1E5EE;
+  --grey: #BBBCC8;
+
+
+  --angry: linear-gradient(0deg, #FA9889 0%, #BF4E84 100%);
+  --lichi: #D16C9C;
+  --rose: #BF4E84;
+  --error: #BF4E84;
+
+  --happy: linear-gradient(0deg, #DC94B1 0%, #685199 100%);
+  --grape: #AB86B2;
+  --violet: #695299;
+
+  --surprised: linear-gradient(0deg, #72CBD1 0%, #005587 100%);
+  --lime: #4FA7BB;
+  --seaweed: #025688;
+
+  --sad: linear-gradient(0deg, #7ACDE2 0%, #2548A6 100%);
+  --plum: #508BC4;
+  --iris: #2548A6;
+
+  --disgusted: linear-gradient(0deg, #EAEC8A 0%, #FEBC57 100%);
+  --melon: #F0DC78;
+  --mimosa: #FEBD58;
+  
+  --anxious: linear-gradient(0deg, #F9CD90 0%, #D8533C 100%);
+  --orange: #EB9A6D;
+  --tulip: #D8543D;
+
 }
 
 /** ------------------------------COMMON------------------------------ **/
@@ -129,6 +144,9 @@ a.nav-link:before {
   border: solid 1px var(--light-grey);
 }
 
+.lh-20, .lh-20 h3 {line-height: 20px;}
+ 
+
 .pb-20 {padding-bottom: 20px;}
 .pl-20 {padding-left: 20px;}
 .pl-50 {padding-left: 50px;}
@@ -137,8 +155,11 @@ a.nav-link:before {
 .pt-40 {padding-top: 40px;}
 .pt-60 {padding-top: 60px;}
 .pb-60 {padding-bottom: 60px;}
+.mr-20 {margin-right: 20px;}
+.mb-10 {margin-bottom: 10px;}
 .mb-20 {margin-bottom: 20px;}
 .mb-40 {margin-bottom: 40px;}
+.mt-10 {margin-top: 10px;}
 .mt-20 {margin-top: 20px;}
 .mt-40 {margin-top: 40px;}
 .mt-60 {margin-top: 60px;}
@@ -844,14 +865,15 @@ img.logo-on-back {
 
 /** -------steps--------**/
 
-.steps h3 {
-  padding-top: 5px;
-  display: inline;
+.steps > li > h3 {
+  display: inline-block;
+  padding-left: 2px;
+  vertical-align: middle;
 }
 
 .steps > li {
   position: relative;
-  padding-top: 20px;
+  padding-top: 40px;
 }
 
 .steps > li > span {
@@ -872,7 +894,7 @@ img.logo-on-back {
   background: var(--light-violet);
   z-index: 1;
   top: 40px;
-  bottom: -40px;
+  bottom: -60px;
   left: 18px;
   width: 4px;
 }
@@ -889,7 +911,7 @@ li:not(.inactive) {
 
 .pr-bar {
   height: 60px;
-  margin: 20px 0px 20px 40px;
+  margin: 20px 0px 20px 50px;
   font-size: inherit;
   color: inherit;
   border-radius: 0;
@@ -928,11 +950,13 @@ li:not(.inactive) {
 .pr-bar-label {
   position: absolute;
   left: 40px;
+  margin-top: -1px;
 }
 
 .pr-bar-stat {
   position: absolute;
   right: 40px;
+  margin-top: -1px;
 }
 
 @media (max-width: 767px){
@@ -982,9 +1006,32 @@ li:not(.inactive) {
 /** -------summary--------**/
 
 .summary, .chartrow .w-block {
-  padding: 40px;
+  padding: 20px 40px;
 }
 
+.summary .ndl-btn, .summary .ndl-btn:visited {
+  min-width: 100px;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+}
+
+.summary > h3 {
+  margin-top: 16px;
+}
+
+.summary > a.ndl-btn:last-child {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .summary .ndl-btn, .summary .ndl-btn:visited {
+    min-width: 100px;
+    padding: 10px 10px;
+    min-height: 40px;
+  }
+}
+
+/**
 .summary > div:not(:last-child) {
   margin-right: 40px;
   display: inline-block;
@@ -992,9 +1039,11 @@ li:not(.inactive) {
   max-width: 120px;
 }
 
+
 .summary > div:last-child {
   min-width: 260px;
 }
+
 
 @media (max-width: 991px) {
   .summary > div:not(:last-child) {
@@ -1026,7 +1075,7 @@ li:not(.inactive) {
   }
 
 }
-
+**/
 
 /** -------chart tab--------**/
 
@@ -1046,30 +1095,22 @@ li:not(.inactive) {
 
 #chartTab .nav-link.active {
   border-bottom-color: var(--back);
+  background-color: transparent;
+}
+
+[id^='speakerTab'] .pr-bar {
+  margin: 0;
+  margin-bottom: 40px;
+  height: 60px;
+  background-color: var(--light-grey);
+}
+
+[id^='speakerTab'] .progress span {
+  position: absolute;
+  bottom: 30px;
 }
 
 /** -------chart blocks--------**/
-
-/**
-.chartrow .lined {
-  padding-left: 50px;
-}
-
-.chartrow .lined div {
-  position: relative;
-}
-
-.chartrow .lined div::after {
-  content: '';
-  position: absolute;
-  background: var(--light-violet);
-  z-index: 1;
-  top: 0px;
-  height: 70px;
-  left: -14px;
-  width: 4px;
-} 
-**/
 
 .chartrow {
   margin-left: -10px;
@@ -1084,10 +1125,6 @@ li:not(.inactive) {
 
 .w-block {
   position: relative;
-}
-
-.lined div:first-child {
-  margin-bottom: 20px;
 }
 
 .chart-placeholder {
@@ -1105,13 +1142,16 @@ li:not(.inactive) {
   width: 20px;
   border-radius: 10px;
   margin-right: 10px;
+  background: var(--neutral);
 }
 
 .legend {
-  padding-top: 20px;
+  margin-top: 15px;
+  margin-bottom: -5px;
   padding-left: 10px;
 }
 
+/**
 .legend div:not(:first-child) {
   padding-top: 5px;
 }
@@ -1119,6 +1159,7 @@ li:not(.inactive) {
 .legend div:not(:last-child) {
   padding-bottom: 5px;
 }
+**/
 
 .legend div span {
   vertical-align: middle;
@@ -1161,32 +1202,12 @@ li:not(.inactive) {
   background: var(--happy);
 }
 
-.lichi {
-  color: var(--lichi);
-}
-
-.sad {
-  background: var(--sad);
-}
-
-.plum {
-  color: var(--plum);
-}
-
-.angry {
-  background: var(--angry);
-}
-
-.cherry {
-  color: var(--cherry);
-}
-
-.anxious {
-  background: var(--anxious);
-}
-
 .grape {
   color: var(--grape);
+}
+
+.chartcol .progress-bar.grape {
+  background: var(--grape);
 }
 
 .surprised {
@@ -1197,6 +1218,22 @@ li:not(.inactive) {
   color: var(--lime);
 }
 
+.chartcol .progress-bar.lime {
+  background: var(--lime);
+}
+
+.sad {
+  background: var(--sad);
+}
+
+.plum {
+  color: var(--plum);
+}
+
+.chartcol .progress-bar.plum {
+  background: var(--plum);
+}
+
 .disgusted {
   background: var(--disgusted);
 }
@@ -1204,3 +1241,36 @@ li:not(.inactive) {
 .melon {
   color: var(--melon);
 }
+
+.chartcol .progress-bar.melon {
+  background: var(--melon);
+}
+
+.anxious {
+  background: var(--anxious);
+}
+
+.orange {
+  color: var(--orange);
+}
+
+.chartcol .progress-bar.orange {
+  background: var(--orange);
+}
+
+.angry {
+  background: var(--angry);
+}
+
+.lichi {
+  color: var(--lichi);
+}
+
+.chartcol .progress-bar.lichi {
+  background: var(--lichi);
+}
+
+.grey {
+  color: var(--grey);
+}
+

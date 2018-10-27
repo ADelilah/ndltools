@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Emotion recognition tool by Neurodata lab</title>
+
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/styles.css" rel="stylesheet">
+    <link href="../vendor/checkboxes.css" rel="stylesheet">
+    <link href="../vendor/circle-progress.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../vendor/fonts/MyFontsWebfontsKit.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg static-top navbar-default">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html"><img src="../assets/logo.svg" onerror="this.onerror=null; this.src='../assets/logo.png'"></a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="login.html#login"><ion-icon name="contact"></ion-icon></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">Username</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row white-text tool-head">
+
+        <div class="col-lg-5 col-md-5 col-sm-12 col-12">
+          <h1>Voice Splitter</h1>
+          <h2>Demo tool</h2>
+        </div>
+
+        <div class="col-lg-7 col-md-7 col-sm-12 col-12 tool-description">
+          <ul class="conn list-unstyled">
+            <li>Identifies <span class="bold">who and when</span> is speaking</li>
+            <li>Audio or video with <span class="bold">up to 3 people speaking</span></li>
+            <li>Returns an audio track for each speaker and a noise track with laugh, applauds, etc. </li>
+          </ul>
+        </div>
+      </div> <!-- end row -->
+
+        <nav class="nav nav-pills nav-fill" id="toolTabs" role="tablist">
+          <a class="nav-item nav-link active" id="proc-tab" data-toggle="pill" href="#proc" role="tab" aria-controls="proc" aria-selected="true">Processing</a>
+          <a class="nav-item nav-link" id="res-tab" data-toggle="pill" href="#res" role="tab" aria-controls="res" aria-selected="false">Results</a>
+        </nav>
+    </div> <!-- end head container -->
+
+    <div class="tab-back">
+      <div class="container">
+
+        <div class="tab-content">
+
+          <!-- PROCESSING -->
+
+          <div class="tab-pane active" id="proc" role="tabpanel" aria-labelledby="proc-tab">
+            <div class="row"> 
+
+              <div class="col-lg-9 col-md-9 col-sm-12 col-12">
+                <div class="current-file d-flex align-items-center">
+                  <span>Processing uloaded file:</span>
+                  <span class="h3-inl pl-20" id="fileName">filename.mp4</span>
+                  <span class="h3-inl pl-20" id="fileTime">155.3 s</span>
+                  <span class="h3-inl pl-20" id="fileFPS">29.97 fps</span>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+                  <a class="btn ndl-btn w-100" role="button" id="cancelProcessing" href="er.html">Cancel processing</a>
+              </div>
+
+            </div><!-- end row -->
+
+             <div class="row"> 
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+
+                <ul class="steps list-unstyled">
+                  <li id="processingStep1">
+                    <span>1</span>
+                    <h3>Processing</h3>
+
+                      <div class="progress pr-bar w-block">
+                        <div class="progress-bar" role="progressbar" style="width: 57%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                          <div class="pr-bar-label">
+                            <span>Voice splitter: <span class="h3-inl" id="progressAudio">57%</span></span>
+                            <span>Voice splitter is busy, please, wait. People in queue: <span class="h3-inl" id="queueFace">3</span></span>
+                          </div>
+                        </div>
+                      </div>
+
+                  </li>
+                  <li id="processingStep2" class="inactive">
+                    <span>2</span>
+                    <h3>Results</h3>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="spec-with-line d-flex align-items-center justify-content-center">
+                  <a href="#">Get specification</a>
+                </div>
+              </div>
+
+             </div><!-- end row -->
+          </div><!-- end proc tab -->
+
+          <!-- RESULTS -->
+
+          <div class="tab-pane" id="res" role="tabpanel" aria-labelledby="res-tab">
+            <div class="row">
+
+              <div class="col-lg-9 col-md-9 col-sm-6 col-3">
+                <h1 class="">Results</h1>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-8 ml-auto">
+                  <a class="btn ndl-btn w-100" role="button" id="startOver" href="er.html">Start over</a>
+              </div>
+            </div>
+
+            <div class="row chartrow">
+
+              <!-- SUMMARY -->
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12 chartcol">
+                <div class="summary w-block mb-20">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                            <div class="progress violet mt-20">
+                                <span class="progress-left">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <span class="progress-right">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <div class="progress-value" id="resSpeakers">4</div>
+                            </div>
+                            <p class="mt-10 d-flex justify-content-center">speakers</p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                            <div class="progress pink mt-20">
+                                <span class="progress-left">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <span class="progress-right">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <div class="progress-value"><span id="resRes">720</span><span>p</span></div>
+                            </div>
+                            <p class="mt-10 d-flex justify-content-center">resolution</p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                            <div class="progress green mt-20">
+                                <span class="progress-left">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <span class="progress-right">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <div class="progress-value"><span id="resFPS">39.1</span><span>FPS</span></div>
+                            </div>
+                            <p class="mt-10 d-flex justify-content-center">proc.speed</p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                            <div class="progress blue mt-20">
+                                <span class="progress-left">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <span class="progress-right">
+                                    <span class="progress-bar backward"></span>
+                                </span>
+                                <div class="progress-value" id="resSpeakers">02:37</div>
+                            </div>
+                            <p class="mt-10 d-flex justify-content-center">proc.time</p>
+                        </div>
+
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+
+
+                <!-- VIDEO -->
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe id="videoEmbeded" class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                </div>
+                <img class="img-fluid" src="../assets/vs-tracks.png">
+
+              </div>
+
+              <!-- SPEC -->
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="spec-with-line d-flex align-items-center justify-content-center">
+                  <a href="#">Get specification</a>
+                </div>
+              </div>
+
+            </div> <!-- end row -->
+
+          </div><!-- end res tab -->
+        </div>
+
+      </div> <!-- end tab container -->
+    </div><!-- end tab background -->
+
+    <footer class="page-footer">
+      <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-4 col-3 d-flex align-items-center">
+              <a class="nav-link" href="http://www.neurodatalab.com">Neurodata lab &copy; 2018</a>
+            </div>
+            <div class="col-md-3 col-sm-2 col-1"></div>
+            <div class="col-md-3 col-sm-3 col-4 d-flex align-items-center">
+                <a href=#>Terms of service</a>
+            </div>
+            <div class="col-md-3 col-sm-3 col-4 d-flex align-items-center">
+                <a href=#>Contact support</a>
+            </div>
+          </div>
+      </div>
+    </footer>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+    <script src="../vendor/script.js"></script>
+
+  </body>
+
+</html>

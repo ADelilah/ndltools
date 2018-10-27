@@ -13,6 +13,7 @@
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../vendor/styles.css" rel="stylesheet">
     <link href="../vendor/checkboxes.css" rel="stylesheet">
+    <link href="../vendor/circle-progress.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../vendor/fonts/MyFontsWebfontsKit.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 
@@ -179,30 +180,92 @@
           <div class="tab-pane" id="res" role="tabpanel" aria-labelledby="res-tab">
             <div class="row">
 
-              <div class="col-lg-9 col-md-9 col-sm-6 col-xs-3">
+              <div class="col-lg-9 col-md-9 col-sm-6 col-3">
                 <h1 class="">Results</h1>
               </div>
-              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-9">
+              <div class="col-lg-3 col-md-3 col-sm-6 col-8 ml-auto">
                   <a class="btn ndl-btn w-100" role="button" id="startOver" href="er.html">Start over</a>
               </div>
+            </div>
 
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="row chartrow">
 
-                <!-- SUMMARY -->
+              <!-- SUMMARY -->
+              <div class="col-lg-9 col-md-12 col-sm-12 col-12 chartcol">
+                <div class="summary w-block mb-20">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                            <div class="progress violet mt-20">
+                                <span class="progress-left">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <span class="progress-right">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <div class="progress-value" id="resSpeakers">4</div>
+                            </div>
+                            <p class="mt-10 d-flex justify-content-center">speakers</p>
+                        </div>
 
-                <div class="summary w-block mb-40 d-flex align-items-center justify-content-between flex-wrap">
-                    <div class=""><h2 class="mb-0" id="resSpeakers">5</h2><span>speakers<br>found</span></div>
-                    <div class=""><h2 class="mb-0" id="resAthmosphere">Neutral</h2><span>overall<br>athmosphere</span></div>
-                    <div class=""><h2 class="mb-0" id="resTime">02:47</h2><span>processing<br>time</span></div>
-                    <div class=""><h2 class="mb-0"><span id="resFPS">29.1</span> FPS</h2><span>processing<br>speed</span></div>
-                    <div>
-                      <a class="btn ndl-btn w-100" role="button" id="getVideo" href="#">Get video</a>
-                      <div></div>
-                      <a class="btn ndl-btn w-100 mb-0" role="button" id="getData" href="#">Get data</a>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                            <div class="progress pink mt-20">
+                                <span class="progress-left">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <span class="progress-right">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <div class="progress-value"><span id="resRes">720</span><span>p</span></div>
+                            </div>
+                            <p class="mt-10 d-flex justify-content-center">resolution</p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                            <div class="progress green mt-20">
+                                <span class="progress-left">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <span class="progress-right">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <div class="progress-value"><span id="resFPS">39.1</span><span>FPS</span></div>
+                            </div>
+                            <p class="mt-10 d-flex justify-content-center">proc.speed</p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                            <div class="progress blue mt-20">
+                                <span class="progress-left">
+                                    <span class="progress-bar"></span>
+                                </span>
+                                <span class="progress-right">
+                                    <span class="progress-bar backward"></span>
+                                </span>
+                                <div class="progress-value" id="resSpeakers">02:37</div>
+                            </div>
+                            <p class="mt-10 d-flex justify-content-center">proc.time</p>
+                        </div>
+
                     </div>
                 </div>
+              </div>
+              <div class="col-lg-3 col-md-12 col-sm-12 col-12 chartcol">
+                <div class="summary w-block mb-20">
+                  <h3 class="mb-20">Download</h3>
+
+                  <a class="btn ndl-btn w-100 h-100" role="button" id="getVideo" href="#">Video (<span id="sizeVideo">103.7Mb</span>)</a>
+
+                  <a class="btn ndl-btn w-100 h-100" role="button" id="getData" href="#">Data (<span id="sizeData">1.4Mb</span>)</a>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+
 
                 <!-- VIDEO -->
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
               
                 <div class="embed-responsive embed-responsive-16by9">
                   <iframe id="videoEmbeded" class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
@@ -229,35 +292,46 @@
 
                     <div class="row chartrow">
 
-                      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 chartcol">
-                        <div class="w-block lined mt-20">
-                          <div><h3 class="mb-0" id="speakerAge">33</h3><span>approx. age</span></div>
-                          <div><h3 class="mb-0" id="speakerPresented">whole video</h3><span>presense</span></div>
+                      <div class="col-lg-2 col-md-3 col-sm-4 col-12 chartcol">
+                        <div class="w-block mt-20 lh-20">
+                          <div class="mt-20"><h3 class="mb-0" id="speakerAge">33</h3><span>approx. age</span></div>
+                          <div class="mt-20 mb-20"><h3 class="mb-0" id="speakerPresented">all time</h3><span>presense</span></div>
                         </div>
                       </div>
 
-                      <div class="col-lg-8 col-md-9 col-sm-8 col-xs-12 chartcol">
-                        <div class="w-block h-100 mt-20">
-                          <h3 class="mb-20">Overall emotion apperance</h3>
-                          <div class="chart-placeholder"></div>
+                      <div class="col-lg-8 col-md-9 col-sm-8 col-12 chartcol">
+                        <div class="w-block mt-20 lh-20">
+                          <h3 class="mb-20 mt-20">Overall emotion apperance</h3>
+                          <div class="progress pr-bar">
+                            <div class="progress-bar grape" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"><span class="h3-inl">15%</span></div>
+                            
+                            <div class="progress-bar lime" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"><span class="h3-inl">30%</span></div>
+                            
+                            <div class="progress-bar melon" role="progressbar" style="width: 5%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><span class="h3-inl">5%</span></div>
+                            
+                          </div>
                         </div>
                       </div>
 
-                      <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 chartcol">
-                        <div class="legend mt-20">
-                          <div><span class="circle-20 happy"></span><span class="lichi h3-inl">Happy</span></div>
-                          <div><span class="circle-20 angry"></span><span class="cherry h3-inl">Angry</span></div>
-                          <div><span class="circle-20 disgusted"></span><span class="melon h3-inl">Disgusted</span></div>
+                      <div class="col-lg-2 col-md-12 col-sm-12 col-12 chartcol">
+                        <div class="legend">
+                          <div><span class="circle-20 happy"></span><span class="grape h3-inl">Happy</span></div>
                           <div><span class="circle-20 surprised"></span><span class="lime h3-inl">Surprised</span></div>
                           <div><span class="circle-20 sad"></span><span class="plum h3-inl">Sad</span></div>
-                          <div><span class="circle-20 anxious"></span><span class="grape h3-inl">Anxious</span></div>
+                          
+                          <div><span class="circle-20 disgusted"></span><span class="melon h3-inl">Disgusted</span></div>
+
+                          <div><span class="circle-20 anxious"></span><span class="orange h3-inl">Anxious</span></div>
+                          <div><span class="circle-20 angry"></span><span class="lichi h3-inl">Angry</span></div>
+                          <div><span class="circle-20"></span><span class="grey h3-inl">Neutral</span></div>
                         </div>
+
                       </div>
 
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 chartcol">
-                        <div class="w-block mt-20">
-                          <h3 class="mb-40">Emotion dynamics</h3>
-                          <div class="chart-placeholder"></div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12 chartcol">
+                        <div class="w-block mt-20 lh-20">
+                          <h3 class="mt-20 mb-20">Emotion dynamics</h3>
+                          <div class="mb-20" style="height: 330px; background-color: var(--light-grey);"></div>
                         </div>
                       </div>                      
 
@@ -292,7 +366,7 @@
 
               <!-- SPEC -->
 
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="spec-with-line d-flex align-items-center justify-content-center">
                   <a href="#">Get specification</a>
                 </div>
