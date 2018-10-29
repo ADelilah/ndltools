@@ -7,6 +7,8 @@
   --link: #816DC8;
   --light-violet: #B4A8CC; /* #C4B7D5; */
   --dark-violet: #452E61;
+  --error: #BF4E84;
+  --error-back: #FFB9D5;
 
   --neutral: linear-gradient(0deg, #E1E5EE 0%, #BBBCC8 100%);
   --light-grey: #E1E5EE;
@@ -16,7 +18,6 @@
   --angry: linear-gradient(0deg, #FA9889 0%, #BF4E84 100%);
   --lichi: #D16C9C;
   --rose: #BF4E84;
-  --error: #BF4E84;
 
   --happy: linear-gradient(0deg, #DC94B1 0%, #685199 100%);
   --grape: #AB86B2;
@@ -168,12 +169,6 @@ a.nav-link:before {
   opacity: 0.4;
 }
 
-.error {
-  background: var(--error);
-  color: var(--lichi);
-  padding: 20px;
-}
-
 textarea:hover, 
 input:hover, 
 textarea:active, 
@@ -208,6 +203,32 @@ textarea:-ms-input-placeholder {
     line-height:40px;
 } 
 
+
+/** ----------notifications and errors---------- **/
+
+.block-notice {
+  display: none;
+}
+
+.block-notice {
+  background: var(--light-grey);
+  padding: 20px;
+}
+
+.block-notice p, .block-notice h2 {
+  text-align: center;
+}
+
+.error {
+  background: var(--error-back);
+  color: var(--rose);
+}
+
+.block-notice.big-notice {
+  margin-top: -20px;
+  margin-bottom: 40px;
+  padding: 40px;
+}
 
 /** ----------navbar---------- **/
 
@@ -781,21 +802,6 @@ img.logo-on-back {
   color: white;
   width: 100%;
   height: 100%;
-}
-
-.busy-tool {
-  display: none;
-}
-
-.busy-tool > div > div {
-  background: var(--light-grey);
-  margin-top: -20px;
-  margin-bottom: 40px;
-  padding: 40px;
-}
-
-.busy-tool p, .busy-tool h2 {
-  text-align: center;
 }
 
 /** -------example----------**/
