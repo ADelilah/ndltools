@@ -544,6 +544,11 @@ img.logo-on-back {
   min-width: 140px;
 }
 
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
 .line-input {
   height: 50px;
   background-color: transparent;
@@ -560,6 +565,22 @@ img.logo-on-back {
 
 .line-input:focus {
   background-color: transparent;
+}
+
+/** validation errors **/
+.custom-select.is-invalid, .form-control.is-invalid, .was-validated .custom-select:invalid, .was-validated .form-control:invalid {
+border-color: none;
+border-bottom-color: var(--error); 
+}
+
+.form-group .invalid-feedback {
+  display: none;
+  color: var(--error-back);
+  position: absolute;
+  right: 0;
+  top: 30%;
+  width: auto;
+  margin: auto;
 }
 
 /** ------------------------------HOME------------------------------ **/
