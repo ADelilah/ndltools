@@ -14,7 +14,9 @@
     <link href="../vendor/styles.css" rel="stylesheet">
     <link href="../vendor/checkboxes.css" rel="stylesheet">
     <link href="../vendor/circle-progress.css" rel="stylesheet">
+    <link href="../vendor/player.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../vendor/fonts/MyFontsWebfontsKit.css">
+    <link href="https://unpkg.com/ionicons@4.4.6/dist/css/ionicons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 
   </head>
@@ -67,7 +69,7 @@
 
           <!-- PROCESSING -->
 
-          <div class="tab-pane active" id="proc" role="tabpanel" aria-labelledby="proc-tab">
+          <div class="tab-pane" id="proc" role="tabpanel" aria-labelledby="proc-tab">
             <div class="row"> 
 
               <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
@@ -186,7 +188,7 @@
 
           <!-- RESULTS -->
 
-          <div class="tab-pane" id="res" role="tabpanel" aria-labelledby="res-tab">
+          <div class="tab-pane active" id="res" role="tabpanel" aria-labelledby="res-tab">
             <div class="row">
 
               <div class="col-lg-9 col-md-9 col-sm-6 col-3">
@@ -197,10 +199,9 @@
               </div>
             </div>
 
+            <!-- SUMMARY -->
             <div class="row chartrow">
-
-              <!-- SUMMARY -->
-              <div class="col-lg-9 col-md-12 col-sm-12 col-12 chartcol">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12 chartcol">
                 <div class="summary w-block mb-20">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-6 col-6">
@@ -258,41 +259,91 @@
                     </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-md-12 col-sm-12 col-12 chartcol">
-                <div class="summary w-block mb-20">
-                  <h3 class="mb-20">Download</h3>
-
-                  <a class="btn ndl-btn w-100 h-100" role="button" id="getVideo" href="#">Video (<span id="sizeVideo">103.7Mb</span>)</a>
-
-                  <a class="btn ndl-btn w-100 h-100" role="button" id="getData" href="#">Data (<span id="sizeData">1.4Mb</span>)</a>
-
-                </div>
-              </div>
             </div>
+
 
             <div class="row">
 
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+
+                <!-- player -->
+
+                <div class="b-block">
+                  <div class="row">
+                    <div class="col-xl-6 col-md-6 col-6">
+                      <h3 id="fileName" class="pl-20 pt-20">Filename.wav</h3>
+                    </div>
+                    <div class="col-xl-6 col-md-6 col-6">
+                      <a class="download mt-0 pt-20" role="button" id="getVideo" href="#"><ion-icon name="download"></ion-icon> Video (<span id="sizeVideo">103.7Mb</span>)</a>
+                    </div>
+                  </div>
+                </div>
+                <video class="w-100" id="video">
+                  <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+                <div class="b-block pt-0 pb-0">
+                  <div class="audio audio-player">
+                    <div class="loading">
+                      <div class="spinner"></div>
+                    </div>
+                    <div class="play-pause-btn">  
+                      <ion-icon name="play" d="M18 12L0 24V0" class="play-pause-icon" id="playPause" item-left></ion-icon>
+                    </div>
+                    
+                    <div class="controls mr-0">
+                      <span class="current-time">0:00</span>
+                      <div class="slider" data-direction="horizontal">
+                        <div class="gress">
+                          <div class="pin" id="gress-pin" data-method="rewind"></div>
+                        </div>
+                      </div>
+                      <span class="total-time">0:00</span>
+                    </div>
+                    
+                    <div class="volume" style="display: none;">
+                      <div class="volume-btn">
+                        <ion-icon name="volume-low" id="speaker" d="M14.667 0v2.747c3.853 1.146 6.666 4.72 6.666 8.946 0 4.227-2.813 7.787-6.666 8.934v2.76C20 22.173 24 17.4 24 11.693 24 5.987 20 1.213 14.667 0zM18 11.693c0-2.36-1.333-4.386-3.333-5.373v10.707c2-.947 3.333-2.987 3.333-5.334zm-18-4v8h5.333L12 22.36V1.027L5.333 7.693H0z"></ion-icon>
+                      </div>
+                      <div class="volume-controls hidden">
+                        <div class="slider" data-direction="vertical">
+                          <div class="gress">
+                            <div class="pin" id="volume-pin" data-method="changeVolume"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <audio crossorigin>
+                      <source src="../assets/Swing_Jazz_Drum.mp3" type="audio/mpeg" id="fileProcessed">
+                    </audio>
+                  </div>
+                </div>
+
+              </div>
 
                 <!-- VIDEO -->
               <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-              
-                <div class="embed-responsive embed-responsive-16by9">
-                  <iframe id="videoEmbeded" class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-                </div>
 
                 <!-- CHART TAB -->
-
-                <ul class="nav nav-tabs" id="chartTab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active" id="speaker1-tab" data-toggle="tab" href="#speaker1" role="tab" aria-controls="speaker1" aria-selected="true">ID 1</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="speaker2-tab" data-toggle="tab" href="#speaker2" role="tab" aria-controls="speaker2" aria-selected="false">ID 2</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="speaker3-tab" data-toggle="tab" href="#speaker3" role="tab" aria-controls="speaker3" aria-selected="false">ID 3</a>
-                  </li>
-                </ul>
+                <div class="row">
+                  <div class="col-lg-9 col-md-12 col-sm-12">
+                    <ul class="nav nav-tabs" id="chartTab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="speaker1-tab" data-toggle="tab" href="#speaker1" role="tab" aria-controls="speaker1" aria-selected="true">ID 1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="speaker2-tab" data-toggle="tab" href="#speaker2" role="tab" aria-controls="speaker2" aria-selected="false">ID 2</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="speaker3-tab" data-toggle="tab" href="#speaker3" role="tab" aria-controls="speaker3" aria-selected="false">ID 3</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-3 col-md-12 col-sm-12">
+                    <a class="download" role="button" id="getData" href="#"><ion-icon name="download"></ion-icon>Data (<span id="sizeData">1.4Mb</span>)</a>
+                  </div>
+                </div>
 
                 <div class="tab-content" id="speakerTab1">
                   <div class="tab-pane mt-20 fade show active" id="speaker1" role="tabpanel" aria-labelledby="speaker1-tab">
@@ -411,7 +462,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+    <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
     <script src="../vendor/script.js"></script>
 
   </body>

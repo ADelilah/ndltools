@@ -22,7 +22,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
 // audio player
 
-var audioPlayer = document.querySelector('.green-audio-player');
+var audioPlayer = document.querySelector('.audio-player');
 var playPause = audioPlayer.querySelector('#playPause');
 var playpauseBtn = audioPlayer.querySelector('.play-pause-btn');
 var loading = audioPlayer.querySelector('.loading');
@@ -204,6 +204,23 @@ function directionAware() {
 }
 
 // end audio player
+
+
+
+
+
+// video player
+
+// Grab a handle to the video
+var video = document.getElementById("video");
+// Turn off the default controls
+video.controls = false;
+
+// end video player
+
+
+
+
 
 function expandTextarea(id) {
           document.getElementById(id).addEventListener('keyup', function() {

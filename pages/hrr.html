@@ -50,10 +50,11 @@
             <li>Tracks pixel color change on the face</li>
           </ul>
         </div>
-        </div> <!-- end row -->
+      </div> <!-- end row -->
 
         <nav class="nav nav-pills nav-fill" id="toolTabs" role="tablist">
-          <a class="nav-item nav-link" id="web-tab" data-toggle="pill" href="#web" role="tab" aria-controls="web" aria-selected="false">Webcam</a>
+          <a class="nav-item nav-link active" id="file-tab" data-toggle="pill" href="#file" role="tab" aria-controls="file" aria-selected="true">Pre-recorded</a>
+          <a class="nav-item nav-link" id="web-tab" data-toggle="pill" href="#web" role="tab" aria-controls="web" aria-selected="false">Real-time</a>
           <a class="nav-item nav-link" id="sample-tab" data-toggle="pill" href="#sample" role="tab" aria-controls="sample" aria-selected="false">Example</a>
         </nav>
     </div> <!-- end head container -->
@@ -62,7 +63,83 @@
       <div class="container">
 
         <div class="tab-content">
-          <div class="tab-pane pb-40 active" id="web" role="tabpanel" aria-labelledby="web-tab">
+
+          <div class="tab-pane active pb-40" id="file" role="tabpanel" aria-labelledby="file-tab">
+            <div class="row">
+
+              <div class="col-xl-6 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+
+                  <div class="custom-file">
+
+                    <div class="error" id=fileValErrorER>Maximum file size is 100Mb.</div>
+
+                    <div class="progress pr-bar">
+                      <div class="progress-bar" role="progressbar" style="width: 34%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="pr-bar-label text-center">
+                            <div>Uploading <span id="fileName">filename.mp4</span>...</div>
+                            <h3 class="text-center mb-0" id="progressUpload">34%</h3>
+                        </div>
+                      </div>
+                    </div>
+
+                    <input type="file" class="custom-file-input" id="dragdrop">
+                    <label class="custom-file-label d-flex justify-content-center align-items-center" for="dragdrop"><div class=""><p>Drop a video</p><p>or</p><a>choose from device</a></div></label>
+                  </div>
+
+              </div>
+
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                <div class="form">
+                    <div class="form-check pl-0">
+                      <label class="radio-block rb-21 form-check-label" for="resRadios1">
+                        <input class="form-check-input" type="radio" name="resRadios" id="resRadios1" value="auto" checked/>
+                        <div class="lbl">
+                          <span class="h3-inl mr-auto">Original resolution</span>
+                        </div>
+                        <div class="radio-block-back w-block"></div>
+                      </label>
+                      <label class="radio-block rb-21 form-check-label" for="resRadios2">
+                        <input class="form-check-input" type="radio" name="resRadios" id="resRadios2" value="2"/>
+                        <div class="lbl">
+                          <span class="h3-inl lbl">360p (fastest)</span>
+                        </div>
+                        <div class="radio-block-back w-block"></div>
+                      </label>
+                      <label class="radio-block form-check-label" for="resRadios3">
+                        <input class="form-check-input" type="radio" name="resRadios" id="resRadios3" value="3"/>
+                        <div class="lbl">
+                          <span class="h3-inl lbl">720p</span>
+                        </div>
+                        <div class="radio-block-back w-block"></div>
+                      </label>
+                    </div>
+                    <a class="btn ndl-btn w-100 mb-40" role="button" type="submit" id="startFile" href="hrr-2.html">Start</a>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <ul class="bullet">
+                  <li>mp4, mov, avi, mpg</li>
+                  <li>60s to 10min</li>
+                  <li>Min 640x480px</li>
+                  <li>Max 100Mb</li>
+                  <li>Enough light in the room</li>
+                  <li>Max 1 person in the frame</li>
+                  <li>No VPN</li>
+                </ul>
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="spec-with-line d-flex align-items-center justify-content-center">
+                  <a href="#">Get specification</a>
+                </div>
+              </div>
+
+            </div> <!-- end row -->
+          </div><!-- end file tab -->
+
+
+          <div class="tab-pane pb-40" id="web" role="tabpanel" aria-labelledby="web-tab">
 
              <!---------- for BUSY tool only ------------>
              <div class="row block-notice"> 
@@ -117,10 +194,13 @@
                               </div>
                             </div>
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-xs-12">
-                              <ul class="bullet">
-                                <li>Max 1 person in the frame</li>
+                              <ul class="bullet pb-20">
+                                <li>60s to 10min</li>
+                                <li>Min 640x480px</li>
                                 <li>Enough light in the room</li>
+                                <li>Max 1 person in the frame</li>
                                 <li>Sit straight and still</li>
+                                <li>No VPN</li>
                               </ul>
                           </div>
                           </div>

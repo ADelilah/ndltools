@@ -12,6 +12,7 @@
 
   --neutral: linear-gradient(0deg, #E1E5EE 0%, #BBBCC8 100%);
   --light-grey: #E1E5EE;
+  --medium-grey: #A4A8B2;
   --grey: #BBBCC8;
 
 
@@ -95,7 +96,7 @@ p, ul, li { margin-bottom: 20px; margin-top: 0; }
 
 h1, h2 { margin-bottom: 40px; }
 
-a, a:visited, #chartTab .nav-link:not(.active), a:not([href]):not([tabindex]) { color: var(--link); }
+a, a:visited, a.download:hover, #chartTab .nav-link:not(.active), a:not([href]):not([tabindex]) { color: var(--link); }
 
 a:hover {text-decoration: none;}
 
@@ -116,7 +117,7 @@ a:before {
   transition: width 0.4s;
 }
 
-a:not(.icon):not(.btn):not(.active):not(.navbar-brand):not([id^='speaker']):not([id^='watch']):hover:before {
+a:not(.icon):not(.btn):not(.active):not(.download):not(.navbar-brand):not([id^='speaker']):not([id^='watch']):hover:before {
   width: 100%;
   left: 0;
   right: 0;
@@ -1106,21 +1107,26 @@ li:not(.inactive) {
 
 /** -------chart tab--------**/
 
-#chartTab {
-  margin-top: 40px;
-}
-
 #chartTab .nav-link {
   background-color: transparent;
   border-radius: 0;
-  min-height: 50px;
   min-width: 120px;
   text-align: center;
+}
+
+#chartTab.nav-tabs {
+  border-bottom: solid 1px var(--light-grey);
+}
+
+#chartTab .nav-link, a.download {
+  min-height: 50px;
+  margin-top: 40px;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
 #chartTab .nav-link.active {
+  border-color: var(--light-grey);
   border-bottom-color: var(--back);
   background-color: transparent;
 }
@@ -1135,6 +1141,39 @@ li:not(.inactive) {
 [id^='speakerTab'] .progress span {
   position: absolute;
   bottom: 30px;
+}
+
+.b-block a.download {
+  padding-top: 24px;
+  padding-right: 20px;
+  color: var(--light-violet);
+}
+
+a.download {
+  display: inline-block;
+  line-height: 26px;
+  width: 100%;
+  text-align: right;
+}
+
+a#getData {
+  text-align: center;
+  border-bottom: solid 1px var(--light-grey);
+}
+
+.h3-inl ~ a.download {
+  border-bottom: none!important;
+  display: inline;
+  text-align: right;
+  margin:0;
+  padding: 0;
+  min-height: auto;
+}
+
+a.download  > ion-icon {
+  padding-right: 10px;
+  vertical-align: middle;
+  font-size: 1.2em;
 }
 
 /** -------chart blocks--------**/

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Voice splitter tool by Neurodata lab</title>
+    <title>Heart and respiration tool by Neurodata lab</title>
 
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../vendor/styles.css" rel="stylesheet">
@@ -16,8 +16,8 @@
     <link href="../vendor/circle-progress.css" rel="stylesheet">
     <link href="../vendor/player.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../vendor/fonts/MyFontsWebfontsKit.css">
-    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
     <link href="https://unpkg.com/ionicons@4.4.6/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 
   </head>
 
@@ -42,16 +42,15 @@
     <div class="container">
       <div class="row white-text tool-head">
 
-        <div class="col-lg-5 col-md-5 col-sm-12 col-12">
-          <h1>Voice Splitter</h1>
+        <div class="col-xl-5 col-lg-6 col-md-7 col-sm-12 col-xs-12">
+          <h1>Heart & Respiration</h1>
           <h2>Demo tool</h2>
         </div>
 
-        <div class="col-lg-7 col-md-7 col-sm-12 col-12 tool-description">
+        <div class="col-xl-7 col-lg-6 col-md-5 col-sm-12 col-xs-12 tool-description">
           <ul class="conn list-unstyled">
-            <li>Identifies <span class="bold">who and when</span> is speaking</li>
-            <li>Audio or video with <span class="bold">up to 3 people speaking</span></li>
-            <li>Returns an audio track for each speaker and a noise track with laugh, applauds, etc. </li>
+            <li>Registers changes in heart and respiration rates</li>
+            <li>Tracks pixel color change on the face</li>
           </ul>
         </div>
       </div> <!-- end row -->
@@ -69,10 +68,10 @@
 
           <!-- PROCESSING -->
 
-          <div class="tab-pane active" id="proc" role="tabpanel" aria-labelledby="proc-tab">
+          <div class="tab-pane" id="proc" role="tabpanel" aria-labelledby="proc-tab">
             <div class="row"> 
 
-              <div class="col-lg-9 col-md-9 col-sm-12 col-12">
+              <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                 <div class="current-file d-flex align-items-center">
                   <span>Processing uloaded file:</span>
                   <span class="h3-inl pl-20" id="fileName">filename.mp4</span>
@@ -81,15 +80,24 @@
                 </div>
               </div>
 
-              <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                   <a class="btn ndl-btn w-100" role="button" id="cancelProcessing" href="er.html">Cancel processing</a>
               </div>
 
             </div><!-- end row -->
 
+             <!---------- Block error ------------>
+             <div class="row"> 
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="block-notice error">
+                    <p class="mb-0" id="blockError">This is an error message arriving from backend.</p>
+                  </div>
+                </div>
+             </div> <!-- end row for block error -->
+
              <div class="row"> 
 
-              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                 <ul class="steps list-unstyled">
                   <li id="processingStep1">
@@ -99,7 +107,7 @@
                       <div class="progress pr-bar w-block">
                         <div class="progress-bar" role="progressbar" style="width: 57%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                           <div class="pr-bar-label">
-                            <span>Voice splitter: <span class="h3-inl" id="progressAudio">57%</span></span>
+                            <span>Heart and respiration: <span class="h3-inl" id="progressAudio">57%</span></span>
                             <span>Voice splitter is busy, please, wait. People in queue: <span class="h3-inl" id="queueFace">3</span></span>
                           </div>
                         </div>
@@ -113,7 +121,7 @@
                 </ul>
               </div>
 
-              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="spec-with-line d-flex align-items-center justify-content-center">
                   <a href="#">Get specification</a>
                 </div>
@@ -124,17 +132,16 @@
 
           <!-- RESULTS -->
 
-          <div class="tab-pane" id="res" role="tabpanel" aria-labelledby="res-tab">
+          <div class="tab-pane active" id="res" role="tabpanel" aria-labelledby="res-tab">
             <div class="row">
 
               <div class="col-lg-9 col-md-9 col-sm-6 col-3">
                 <h1 class="">Results</h1>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-6 col-8 ml-auto">
-                  <a class="btn ndl-btn w-100" role="button" id="startOver" href="er.html">Start over</a>
+                  <a class="btn ndl-btn w-100" role="button" id="startOver" href="hrr.html">Start over</a>
               </div>
             </div>
-
 
             <!-- SUMMARY -->
             <div class="row chartrow">
@@ -149,9 +156,9 @@
                                 <span class="progress-right">
                                     <span class="progress-bar"></span>
                                 </span>
-                                <div class="progress-value" id="resSpeakers">4</div>
+                                <div class="progress-value" id="resSpeakers">??</div>
                             </div>
-                            <p class="mt-10 d-flex justify-content-center">speakers</p>
+                            <p class="mt-10 d-flex justify-content-center">????????</p>
                         </div>
 
                         <div class="col-lg-3 col-md-3 col-sm-6 col-6">
@@ -162,9 +169,9 @@
                                 <span class="progress-right">
                                     <span class="progress-bar"></span>
                                 </span>
-                                <div class="progress-value"><span id="resRes">320</span><span>kbps</span></div>
+                                <div class="progress-value"><span id="resRes">720</span><span>p</span></div>
                             </div>
-                            <p class="mt-10 d-flex justify-content-center">bitrate</p>
+                            <p class="mt-10 d-flex justify-content-center">resolution</p>
                         </div>
 
                         <div class="col-lg-3 col-md-3 col-sm-6 col-6">
@@ -198,14 +205,28 @@
               </div>
             </div>
 
+
             <div class="row">
 
-
-                <!-- VIDEO / AUDIO -->
               <div class="col-lg-12 col-md-12 col-sm-12 col-12">
 
+                <!-- player -->
+
                 <div class="b-block">
-                  <h3 id="fileName" class="pl-20 pt-20">Filename.wav</h3>
+                  <div class="row">
+                    <div class="col-xl-6 col-md-6 col-6">
+                      <h3 id="fileName" class="pl-20 pt-20">Filename.wav</h3>
+                    </div>
+                    <div class="col-xl-6 col-md-6 col-6">
+                      <a class="download mt-0 pt-20" role="button" id="getVideo" href="#"><ion-icon name="download"></ion-icon> Video (<span id="sizeVideo">103.7Mb</span>)</a>
+                    </div>
+                  </div>
+                </div>
+                <video class="w-100" id="video">
+                  <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+                <div class="b-block pt-0 pb-0">
                   <div class="audio audio-player">
                     <div class="loading">
                       <div class="spinner"></div>
@@ -218,11 +239,7 @@
                       <span class="current-time">0:00</span>
                       <div class="slider" data-direction="horizontal">
                         <div class="gress">
-                          <div class="pin" id="gress-pin" data-method="rewind"><div class="line"></div></div>
-                        </div>
-                        <div class="tracks">
-                          <div id="track1"><h3>ID 1</h3><img class="" src="../assets/vs-track1.png"></div>
-                          <div id="track2"><h3 style="color: var(--grape);">ID 2</h3><img class="" src="../assets/vs-track2.png"></div>
+                          <div class="pin" id="gress-pin" data-method="rewind"></div>
                         </div>
                       </div>
                       <span class="total-time">0:00</span>
@@ -247,12 +264,37 @@
                   </div>
                 </div>
 
-
-                <div class="tracks-back"><div></div></div>
-
               </div>
 
+                <!-- VIDEO -->
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                  
+                    
+                    <!-- CHART BLOCKS -->
 
+                    <div class="row chartrow mt-20">
+
+                      <div class="col-lg-2 col-md-3 col-sm-4 col-12 chartcol">
+                        <div class="w-block mt-20 lh-20">
+                          <div class="mt-20"><h3 class="mb-0" id="speakerAge">26</h3><span>approx.age</span></div>
+                          <div class="mt-20"><h3 class="mb-0" id="avgPulse">71/min</h3><span>avg.pulse</span></div>
+                          <div class="mt-20 mb-20"><h3 class="mb-0" id="avgBreath">36/min</h3><span>avg.breath</span></div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-10 col-md-9 col-sm-8 col-12 chartcol">
+                        <div class="w-block mt-20 lh-20">
+                          <div class="mt-20 mb-20 d-flex justify-content-space-between">
+                            <span class="h3-inl w-100">Pulse and breath rate dynamics</span>
+                            <a class="download text-right" role="button" id="getData" href="#"><ion-icon name="download"></ion-icon>Data (<span id="sizeData">0.8Mb</span>)</a>
+                          </div>
+                          <div class="mb-20" style="height: 114px; background-color: var(--light-grey);"></div>
+                        </div>
+                      </div>                  
+
+                    </div>
+
+              </div>
 
               <!-- SPEC -->
 
@@ -273,14 +315,14 @@
     <footer class="page-footer">
       <div class="container">
           <div class="row">
-            <div class="col-md-3 col-sm-4 col-3 d-flex align-items-center">
+            <div class="col-md-3 col-sm-4 col-xs-3 d-flex align-items-center">
               <a class="nav-link" href="http://www.neurodatalab.com">Neurodata lab &copy; 2018</a>
             </div>
-            <div class="col-md-3 col-sm-2 col-1"></div>
-            <div class="col-md-3 col-sm-3 col-4 d-flex align-items-center">
+            <div class="col-md-3 col-sm-2 col-xs-1"></div>
+            <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
                 <a href=#>Terms of service</a>
             </div>
-            <div class="col-md-3 col-sm-3 col-4 d-flex align-items-center">
+            <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
                 <a href=#>Contact support</a>
             </div>
           </div>
