@@ -149,6 +149,7 @@ a.nav-link:before {
 .lh-20, .lh-20 h3 {line-height: 20px;}
  
 
+.p-30 {padding: 30px;}
 .pb-20 {padding-bottom: 20px;}
 .pl-20 {padding-left: 20px;}
 .pl-50 {padding-left: 50px;}
@@ -711,7 +712,19 @@ border-bottom-color: var(--error);
 
 .tool-head h1 { margin-bottom: 0px; }
 
-.tool-description {margin-top: 9px;}
+@media (min-width: 768px) {
+  .tool-description {margin-top: 9px;}
+}
+
+.pt-14 {
+  padding-top: 14px;
+}
+
+.nav-link > ion-icon[name="log-out"] {
+  font-size: 2em;
+  margin-right: -20px;
+  margin-top: 7px;
+}
 
 .bold {
 }
@@ -844,12 +857,12 @@ border-bottom-color: var(--error);
   background: rgba(0, 0, 0, 0.7);
 }
 
-.audio-block {
+.audio-block, .er, .vs, .hr {
   position: relative;
-  min-height: 175px;
+  min-height: 176px;
 }
 
-.audio-block img {
+.preview {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -861,19 +874,28 @@ border-bottom-color: var(--error);
   z-index: 1;
 }
 
-.audio-block > div:not(.hover-fade) {
+.title-over {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-height: 200px;
   padding: 20px;
   z-index: 10;
-  background-color: rgba(256,256,256,0.8);
+  background-color: rgba(0,0,0,0.8);
   font-size: 0.8em;
   overflow: scroll;
+  color: white;
 }
 
-.audio-block .hover-fade {
+.hover-fade {
+  padding: 20px;
   z-index: 20;
+}
+
+.hover-fade:hover ~ .title-over {
+  display: none;
 }
 
 /** ----------------------------------------PROCESSING----------------------------------**/
@@ -904,7 +926,7 @@ border-bottom-color: var(--error);
   padding-top: 40px;
 }
 
-.steps > li > span {
+.steps > li > span, .badge-tool {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -1340,3 +1362,138 @@ a.download  > ion-icon {
   color: var(--grey);
 }
 
+/** ----------------------------------------PROFILE----------------------------------**/
+
+#logout {
+  margin-left: 20px;
+  color: white;
+  font-size: 36px;
+}
+
+#logout:before {
+  display: none;
+}
+
+#jobs {
+  min-width: 100%;
+  background-color: var(--back);
+}
+
+.filter {
+  background: var(--light-grey);
+  border-radius: 20px;
+  height: 40px;
+  padding: 9px 20px;
+  line-height: 16px;
+  border: none;
+  color: var(--text);
+  margin-right: 20px;
+}
+
+.filter.actv {
+  background: var(--light-violet-gr);
+}
+
+.filter > span:first-child {
+  font-size: 16px;
+}
+
+/*
+
+.count {
+  color: inherit;
+  font-weight: inherit;
+  height: 20px;
+  min-width: 20px;
+  padding: 4px;
+  border-radius: 10px;
+  vertical-align: top;
+  margin-left: 5px;
+  margin-right: -10px;
+  text-align: center;
+}
+
+.filter .count {
+  background: var(--back);
+}
+
+*/
+
+.hover-fade, .hover-fade .download {
+  color: white;
+}
+
+.hover-fade .download {
+  min-height: auto;
+  line-height: inherit;
+}
+
+.badge-tool {
+  font-weight: inherit;
+  padding: 0;
+  line-height: 38px;
+}
+
+.er, .vs, .hr, .hover-fade, .hover-fade > div {
+  display: flex;
+}
+
+.er, .vs, .hr {
+  align-items: flex-end;
+  padding: 0;
+}
+
+.hover-fade {
+  justify-content: space-between;
+}
+
+.er > .hover-fade, .hr > .hover-fade {
+  flex-direction: column;
+}
+
+.hover-fade > div {
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.vs .title-over {
+  overflow: visible;
+}
+
+.vs .hover-fade > div:last-child {
+  display: none;
+}
+
+.badge-tool {
+  font-size: 16px;
+}
+
+.er .badge-tool {
+  background: var(--happy);
+}
+
+.hr .badge-tool {
+  background: var(--angry);
+}
+
+.vs .badge-tool {
+  background: var(--surprised);
+}
+
+.sound-only {
+  position: absolute;
+  z-index: 100;
+  top: -100px;
+  left: 20px;
+  right: 20px;
+  color: var(--text);
+}
+
+.flt {
+  display: none;
+}
+
+.shw {
+  display: flex;
+}
