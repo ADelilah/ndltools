@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Admin dashboard - Users</title>
+
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/styles.css" rel="stylesheet">
+    <link href="../vendor/checkboxes.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../vendor/fonts/MyFontsWebfontsKit.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-default" id="adminNav">
+      <div id="maint-back" class="collapse"></div>
+      <div class="container">
+        <a target="_blank" class="navbar-brand" href="../index.html"><img src="../assets/logo.svg" onerror="this.onerror=null; this.src='../assets/logo.png'" id="Logo"></a>
+          <ul class="navbar-nav for-xs">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html"><ion-icon name="log-out" class="hydrated"></ion-icon></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Logout</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav" data-toggle="collapse" data-target="#maint-back" id="maint-toggler">
+              <li class="nav-item">
+                <p class="nav-link m-0"><ion-icon name="construct" class="ios"></ion-icon></p>
+              </li>
+              <li class="nav-item">
+                <p class="nav-link m-0">Maintenance</p>
+              </li>
+              <li>
+                <label class="switch switch-left-right">
+                  <input class="switch-input" type="checkbox" id="maint-switch">
+                  <span class="switch-label" data-on="On" data-off="Off"></span> <span class="switch-handle"></span>
+                </label>
+              </li>
+          </ul>
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="adm.html"><ion-icon name="speedometer" class="ios"></ion-icon></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="adm.html">Events</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="adm-users.html"><ion-icon name="contacts" class="ios"></ion-icon></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="adm-users.html">Users</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav for-lg">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html"><ion-icon name="log-out" class="hydrated"></ion-icon></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Logout</a>
+              </li>
+          </ul>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="back-l w-100">
+      <div class="container pt-60 pb-60">
+          <div class="pb-40">
+            <div class="w-search"><h1>Users</h1></div>
+            <form action="" class="search-form">
+                <div class="form-group has-feedback">
+                <label for="search" class="sr-only">Search</label>
+                <input type="text" class="form-control" name="search" id="search" placeholder="Search">
+                  <ion-icon name="search" class="ios form-control-feedback"></ion-icon>
+              </div>
+            </form>
+          </div>
+        
+          <table class="table adm-table" id="events">
+            <thead class="table-head">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Signed up</th>
+                <th scope="col">Last seen</th>
+                <th scope="col">ER</th>
+                <th scope="col">VS</th>
+                <th scope="col">HR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">3</th>
+                <td><a target="_blank" href="#">Mark Stern</a></td>
+                <td>Dec 10, 2018, 15:30</td>
+                <td>Oct 18, 2018, 12:27</td>
+                <td><a class="download-u" data-toggle="collapse" href="#er3" role="button"><ion-icon id="er3" name="checkmark-circle" class="ios collapse show"></ion-icon></a></td>
+                <td><a class="download-u" data-toggle="collapse" href="#vs3" role="button"><ion-icon id="vs3" name="checkmark-circle" class="ios collapse show"></ion-icon></a></td>
+                <td><a class="download-u" data-toggle="collapse" href="#hr3" role="button"><ion-icon id="hr3" name="checkmark-circle" class="ios collapse"></ion-icon></a></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td><a target="_blank" href="#">John Doe</a></td>
+                <td>Dec 10, 2018, 13:11</td>
+                <td>May 07, 2018, 23:44</td>
+                <td><a class="download-u" data-toggle="collapse" href="#er2" role="button"><ion-icon id="er2" name="checkmark-circle" class="ios collapse"></ion-icon></a></td>
+                <td><a class="download-u" data-toggle="collapse" href="#vs2" role="button"><ion-icon id="vs2" name="checkmark-circle" class="ios collapse show"></ion-icon></a></td>
+                <td><a class="download-u" data-toggle="collapse" href="#hr2" role="button"><ion-icon id="hr2" name="checkmark-circle" class="ios collapse show"></ion-icon></a></td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td><a target="_blank" href="#">Steve Jobs</a></td>
+                <td>Dec 09, 2018, 22:04</td>
+                <td>Jun 12, 2018, 11:04</td>
+                <td><a class="download-u" data-toggle="collapse" href="#er1" role="button"><ion-icon id="er1" name="checkmark-circle" class="ios collapse show"></ion-icon></a></td>
+                <td><a class="download-u" data-toggle="collapse" href="#vs1" role="button"><ion-icon id="vs1" name="checkmark-circle" class="ios collapse show"></ion-icon></a></td>
+                <td><a class="download-u" data-toggle="collapse" href="#hr1" role="button"><ion-icon id="hr1" name="checkmark-circle" class="ios collapse show"></ion-icon></a></td>
+              </tr>
+            </tbody>
+          </table>
+        <nav aria-label="#events">
+          <ul class="pagination pt-40 pagn">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-3 d-flex align-items-center">
+              <a class="nav-link" href="http://www.neurodatalab.com">Neurodata lab &copy; 2018</a>
+            </div>
+            <div class="col-md-3 col-sm-2 col-xs-1"></div>
+            <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
+                <a href=#>Terms of service</a>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
+                <a href=#>Contact support</a>
+            </div>
+          </div>
+      </div>
+    </footer>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+    <script src="../vendor/script.js"></script>
+
+  </body>
+
+</html>

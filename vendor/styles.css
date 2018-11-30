@@ -59,7 +59,7 @@ html {
     background: linear-gradient(-45deg, #452E61 0%, #909DDE 100%);
 }
 
-h1, h2, h3, .nav-link, .h3-inl, #chartTab .nav-link.active { 
+h1, h2, h3, .nav-link, .h3-inl, #chartTab .nav-link.active, .table-head { 
   font-family: BebasNeue; 
   font-weight: normal; 
   font-style: normal;
@@ -96,7 +96,7 @@ p, ul, li { margin-bottom: 20px; margin-top: 0; }
 
 h1, h2 { margin-bottom: 40px; }
 
-a, a:visited, a.download:hover, #chartTab .nav-link:not(.active), a:not([href]):not([tabindex]) { color: var(--link); }
+a, a:visited, a.download:hover, #chartTab .nav-link:not(.active), a:not([href]):not([tabindex]), .pagn li:not(.disabled) a { color: var(--link); }
 
 a:hover {text-decoration: none;}
 
@@ -140,6 +140,11 @@ a.nav-link:before {
 .white-text {
   color: white;
 }
+
+.tab-back, .back-l {
+  background-color: var(--back);
+}
+
 
 .w-block {
   background: white;
@@ -720,7 +725,7 @@ border-bottom-color: var(--error);
   padding-top: 14px;
 }
 
-.nav-link > ion-icon[name="log-out"] {
+.tool-head .nav-link > ion-icon[name="log-out"] {
   font-size: 2em;
   margin-right: -20px;
   margin-top: 7px;
@@ -739,7 +744,6 @@ border-bottom-color: var(--error);
 .tab-back {
   padding-top: 60px;
   min-width: 100%;
-  background-color: var(--back);
 }
 
 .tab-pane li{
@@ -1497,3 +1501,256 @@ a.download  > ion-icon {
 .shw {
   display: flex;
 }
+
+/** ----------------------------------------ADMIN----------------------------------**/
+
+#adminNav {
+  background: var(--violet-gr);
+}
+
+#adminNav .nav-link {
+  color: white;
+  position: relative;
+  overflow: visible;
+}
+
+#adminNav .nav-item {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#adminNav .nav-item.active a::before {
+  height: 2px;
+  background-color: white;
+  width: 100%;
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  top:auto;
+}
+
+#maint-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #F9CD90 0%, #D8533C 100%);
+  z-index: -10;
+}
+
+#adminNav .for-xs {
+  display: none;
+}
+
+#adminNav .navbar-brand {
+  flex-grow: 1;
+}
+
+#maint-toggler {
+  flex-direction: row;
+  align-items: center;
+}
+
+#maint-toggler li:last-child{
+  margin: 0;
+  height: 30px;
+}
+
+.adm-table td, .adm-table th {
+  border-top: none;
+}
+
+.adm-table tbody {
+  border-top-color: var(--light-grey);
+}
+
+.adm-table thead th:nth-child(n+5), .adm-table tr td:nth-child(n+5){
+  text-align: center;
+}
+
+.adm-table th {
+  font-weight: normal;
+}
+
+/*.adm-table thead th:first-child, .adm-table tr th{
+  padding-left: 0;
+  text-align: left;
+}*/
+
+@media (max-width: 991px){
+
+  #adminNav
+
+  #maint-toggler li:first-child{
+    padding-right: 10px;
+    padding-left: 0;
+  }
+}
+
+.pagn > li > a {
+  height: 40px;
+  text-align: center;
+  line-height: 20px;
+  padding: 10px;
+}
+
+.pagn > li:not(:first-child) > a {
+  margin-left: 10px;
+}
+
+.pagn > li > a, .pagn > .page-item.disabled > a {
+  background: none;
+  border: none;
+}
+
+.pagn .page-item.active a {
+  background-color: var(--light-violet);
+  border-radius: 50%;
+  width: 40px;
+}
+
+.pagn > .page-item.disabled > a, .pagn .page-item.active a {
+  color: var(--text);
+}
+
+.adm-table a:hover {
+  color: var(--grape);
+}
+
+.adm-table a::before {
+  width: 0;
+  height: 0;
+}
+
+.adm-table a.download-u {
+  display: inline-block;
+  min-width: 100%;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  min-height: 24px;
+  height: 100%;
+}
+
+@media (max-width: 767px){
+  #adminNav {
+    height: auto;
+    min-height: 180px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+
+  #adminNav .navbar-brand,  #adminNav .for-xs a {
+    margin-bottom: 20px;
+  }
+
+  #adminNav .for-xs {
+  display: flex;
+  flex: 1 0 50%;
+  align-items: flex-end;
+  }
+
+  #adminNav .for-lg, .adm-table .for-lg {
+    display: none;
+  }
+
+  .adm-table td, .adm-table tbody th {
+    font-size: 0.8rem;
+  }
+
+  .adm-table td ion-icon {
+    font-size: 1.2rem;
+  }
+
+  .adm-table td ion-icon:first-child {
+    padding-bottom: 20px;
+  }
+
+  .pagn > li:not(:first-child) > a {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 477px){
+
+  #adminNav #Logo {
+    width: 100%;
+    height: auto;
+  }
+
+  #adminNav .navbar-brand {
+    flex: 1 0 45%;
+  }
+
+  .pagn > li:not(:first-child) > a {
+    margin-left: 30px;
+  }
+}
+
+/*---------search------------------*/
+
+.search-form .form-group {
+  float: right !important;
+  transition: all 0.35s, border-radius 0s;
+  margin-top: 15px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--back);
+  /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;*/
+  border-radius: 50%;
+  border: 2px solid var(--light-grey);
+}
+.search-form .form-group input.form-control {
+  padding-right: 40px;
+  border: 0 none;
+  background: none;
+  box-shadow: none;
+  display:block;
+}
+
+.search-form .form-group input.form-control::placeholder { color: var(--text); opacity: 0.4;}
+
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+  display: none;
+}
+.search-form .form-group input.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  display: none;
+}
+.search-form .form-group input.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  display: none;
+}
+.search-form .form-group input.form-control:-ms-input-placeholder {
+  display: none;
+}
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+  width: 100%;
+  min-width: 370px;
+  max-width: 540px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  z-index: 8;
+}
+.search-form .form-group ion-icon.form-control-feedback {
+  color: var(--link);
+  font-size: 24px;
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  right: 6px;
+  z-index: 10;
+  display: inline-block;
+  line-height: 20px;
+  text-align: center;
+  left: initial;
+}
+
+.w-search {
+  position: absolute;
+}
+

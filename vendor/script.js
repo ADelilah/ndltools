@@ -20,6 +20,38 @@ if (navigator.mediaDevices.getUserMedia) {
   });
 }
 
+
+//-------------------------------------Logo admin
+
+window.onscroll = function() {
+  growShrinkLogo()
+};
+
+function growShrinkLogo() {
+  var Logo = document.getElementById("Logo")
+  var Bar = document.getElementById("adminNav")
+  if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+    Logo.style.height = '60px';
+    Bar.style.height = '60px';
+  } else {
+    Logo.style.height = '80px';
+    Bar.style.height = '120px';
+  }
+}
+
+$(document).ready(function() {
+  $("#maint-toggler").click(function(){
+    //if ('#maint-switch').attr('checked') = false {
+    //  $('#maint-switch').attr('checked', true);
+    //}
+    //else {
+    //  $('#maint-switch').attr('checked', false);
+    //}
+    var checkBoxes = $("#maint-switch");
+    checkBoxes.prop("checked", !checkBoxes.prop("checked"));
+  });
+});
+
 //-------------------------FILTERS
 
 filterSelection("all")
@@ -71,7 +103,6 @@ for (var i = 0; i < btns.length; i++) {
     this.className += " actv";
   });
 }
-
 
 // audio player
 
