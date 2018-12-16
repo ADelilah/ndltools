@@ -76,7 +76,7 @@ input[type=radio]:checked+.lbl::before {
   margin-left: inherit;
 }
 
-input[type="radio"]:checked ~ .radio-block-back {
+input[type="radio"]:checked ~ .radio-block-back, input[type="checkbox"]:checked ~ .radio-block-back {
 	background: var(--light-violet-gr);
 }
 
@@ -135,6 +135,21 @@ input[type=radio].disabled+.lbl::before {
 		color: #BBB;
 }
 **/
+
+.horiz-input {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.horiz-input label:not(fi) {
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+.horiz-input label .radio-block-back {
+    margin-left: 0px;
+}
 
 /* --------------------------- SWITCH --------------------------------*/
 

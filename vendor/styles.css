@@ -59,11 +59,11 @@ html {
     background: linear-gradient(-45deg, #452E61 0%, #909DDE 100%);
 }
 
-h1, h2, h3, .nav-link, .h3-inl, #chartTab .nav-link.active, .table-head { 
+h1, h2, h3, .nav-link, .h3-inl, #chartTab .nav-link.active, .table-head, .access-abs-title { 
   font-family: BebasNeue; 
   font-weight: normal; 
   font-style: normal;
-  letter-spacing: 0.01em; 
+  letter-spacing: 0.05rem; 
 }
 
 h1, h2, h3, .navbar-nav .nav-link, .h3-inl {
@@ -159,6 +159,7 @@ a.nav-link:before {
 .pl-20 {padding-left: 20px;}
 .pl-50 {padding-left: 50px;}
 .pb-40 {padding-bottom: 40px;}
+.pt-15 {padding-top: 15px;}
 .pt-20 {padding-top: 20px;}
 .pt-40 {padding-top: 40px;}
 .pt-60 {padding-top: 60px;}
@@ -166,6 +167,7 @@ a.nav-link:before {
 .mr-20 {margin-right: 20px;}
 .mb-10 {margin-bottom: 10px;}
 .mb-20 {margin-bottom: 20px;}
+.mb-30 {margin-bottom: 30px;}
 .mb-40 {margin-bottom: 40px;}
 .mt-10 {margin-top: 10px;}
 .mt-20 {margin-top: 20px;}
@@ -439,6 +441,22 @@ ul.conn li:before {
     border-left: 1px solid white;
     height: 100%;
     width: 2px;
+}
+
+#admUser ul.conn {
+  margin-top: 30px;
+}
+
+#admUser ul.conn li {
+  padding-bottom: 30px;
+}
+
+#admUser ul.conn li:last-child {
+  padding-bottom: 0px;
+}
+
+#admUser ul.conn li:before {
+  border-left-color: var(--text);
 }
 
 ul.conn li:first-child:before {
@@ -961,6 +979,53 @@ li:not(.inactive) {
   transition: 2s ease;
 }
 
+/** -------steps horizontal--------**/
+
+.steps.horiz {
+  display: flex;
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.steps.horiz > li {
+  padding-top: 0px;
+}
+
+.steps.horiz > li:not(:last-child) {
+  flex-grow: 1;
+}
+
+.steps.horiz > li:not(:first-child) {
+  padding-left: 40px;
+}
+
+#admUser .steps.horiz > li {
+  margin-bottom: 0px;
+}
+
+.steps.horiz > li::after {
+  top: 18px;
+  left: 40px;
+  right: -40px;
+  width: auto;
+  height: 4px;
+}
+
+.steps.horiz > li > h3 {
+  display: block;
+  margin-bottom: 0px;
+}
+
+.steps.horiz > li > p {
+  padding-top: 20px;
+  margin-bottom: 10px; 
+}
+
+#admUser .steps ion-icon{
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
 /** -------progres bars--------**/
 
 .pr-bar {
@@ -1473,18 +1538,6 @@ a.download  > ion-icon {
   font-size: 16px;
 }
 
-.er .badge-tool {
-  background: var(--happy);
-}
-
-.hr .badge-tool {
-  background: var(--angry);
-}
-
-.vs .badge-tool {
-  background: var(--surprised);
-}
-
 .sound-only {
   position: absolute;
   z-index: 100;
@@ -1574,11 +1627,6 @@ a.download  > ion-icon {
   font-weight: normal;
 }
 
-/*.adm-table thead th:first-child, .adm-table tr th{
-  padding-left: 0;
-  text-align: left;
-}*/
-
 @media (max-width: 991px){
 
   #adminNav
@@ -1631,6 +1679,32 @@ a.download  > ion-icon {
   margin-bottom: -4px;
   min-height: 24px;
   height: 100%;
+}
+
+#user-data.adm-table th, #user-data.adm-table td {
+  padding: 0.5rem 0.75rem;
+  padding-left: 0;
+}
+
+.access-block {
+  color: white;
+  background: var(--neutral);
+  height: 60px;
+}
+
+.access-block div.collapse {
+  height: 100%;
+  line-height: 20px;
+  padding: 20px;
+}
+
+.access-abs-title {
+  position: absolute;
+  text-align: center;
+  right:0; left: 0;
+  top:30%;
+  line-height: 22px;
+  margin: auto;
 }
 
 @media (max-width: 767px){
@@ -1752,5 +1826,49 @@ a.download  > ion-icon {
 
 .w-search {
   position: absolute;
+}
+
+/*-------other for admUser--------*/
+
+#admUser .w-block:not(.radio-block-back) {
+  padding: 40px;
+  padding-bottom: 20px;
+}
+
+#admUser h3 ~ a.download {
+  width: auto;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding: 20px 0px;
+  display: block;
+}
+
+#banCheck ~ .radio-block-back {
+  border: solid 1px var(--lichi);
+}
+
+#banCheck ~ .lbl > .h3-inl::before {
+  content: 'block';
+  color: var(--lichi);
+}
+
+#banCheck ~ .lbl::before {
+  color: var(--lichi);
+}
+
+#banCheck:checked ~ .lbl > .h3-inl::before {
+  content: 'blocked';
+  color: white;
+}
+
+#banCheck:checked ~ .radio-block-back {
+  background: var(--lichi);
+}
+
+@media (max-width: 991px) {
+
+  #admUser .w-block {
+    padding: 40px;
+  }
 }
 

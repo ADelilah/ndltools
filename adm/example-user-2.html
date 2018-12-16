@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Admin dashboard - User ver.2</title>
+
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/styles.css" rel="stylesheet">
+    <link href="../vendor/checkboxes.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../vendor/fonts/MyFontsWebfontsKit.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-default" id="adminNav">
+      <div id="maint-back" class="collapse"></div>
+      <div class="container">
+        <a target="_blank" class="navbar-brand" href="../index.html"><img src="../assets/logo.svg" onerror="this.onerror=null; this.src='../assets/logo.png'" id="Logo"></a>
+          <ul class="navbar-nav for-xs">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html"><ion-icon name="log-out" class="hydrated"></ion-icon></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Logout</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav" data-toggle="collapse" data-target="#maint-back" id="maint-toggler">
+              <li class="nav-item">
+                <p class="nav-link m-0"><ion-icon name="construct" class="ios"></ion-icon></p>
+              </li>
+              <li class="nav-item">
+                <p class="nav-link m-0">Maintenance</p>
+              </li>
+              <li>
+                <label class="switch switch-left-right">
+                  <input class="switch-input" type="checkbox" id="maint-switch">
+                  <span class="switch-label" data-on="On" data-off="Off"></span> <span class="switch-handle"></span>
+                </label>
+              </li>
+          </ul>
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="adm.html"><ion-icon name="speedometer" class="ios"></ion-icon></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="adm.html">Events</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="adm-users.html"><ion-icon name="contacts" class="ios"></ion-icon></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="adm-users.html">Users</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav for-lg">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html"><ion-icon name="log-out" class="hydrated"></ion-icon></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Logout</a>
+              </li>
+          </ul>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="back-l w-100">
+      <div class="container pt-60 pb-60">
+          <div class="row chartrow" id="admUser">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 chartcol">
+              <div class="w-block">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-12 chartcol">
+                    <h1 class="mb-20" id="username">Example User</h1>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 chartcol">
+                    <ul class="mt-20 conn list-unstyled lh-20">
+                      <li id="jobTitle">Customer Experience Manager</li>
+                      <li id="company">E-corp</li>
+                      <li id="email">johnatandoe@ecorp.com</li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-8 col-md-6 col-sm-12 col-12 chartcol">
+                    <ul class="steps horiz list-unstyled mt-20 lh-20">
+                      <li>
+
+                        <span><ion-icon name="checkmark" class="ios"></ion-icon></span>
+                        <p>Joined</p>
+                        <h3 id="joinDate">Sep 29, 2018</h3>
+                      </li>
+                      <li>
+                        <span><ion-icon name="videocam" class="ios"></ion-icon></span>
+                        <p>Results</p>
+                        <a href="#results"><h3><span id="resTotal">7</span>: <span id="resER">3</span> ER, <span id="resVS">2</span> VS, <span id="resHR">3</span> HR</h3></a>
+                      </li>
+                      <li id="processingStep3">
+                        <span><ion-icon name="log-out"></ion-icon></span>
+                        <p>Last seen</p>
+                        <h3>Dec 18, 2018</h3>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 chartcol">
+              <div class="w-block mt-20 lh-20 d-flex align-items-center">
+                <h3 class="flex-grow-1 mb-30 mt-10">#<span id="userID">37453</span></h3>
+                <a class="download" role="button" id="getInfo" href="#"><ion-icon name="download"></ion-icon>Info</a>
+              </div>
+            </div>
+
+            <!--<div class="col-lg-8 col-md-8 col-sm-12 col-12 chartcol">
+              <div class="w-block mt-20 lh-20">
+                <div class="row">
+                  <div class="col-lg-1 col-md-1 col-sm-12 col-12 d-flex align-items-center">
+                    <h3 class="mb-20">Access</h3>
+                  </div>
+                  <div class="col-lg-11 col-md-11 col-sm-12 col-12">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 col-sm-4 col-4">
+                        <label class="radio-block check-block rb-21 form-check-label" for="erAccess">
+                          <input class="form-check-input" type="checkbox" id="erAccess" checked/>
+                          <div class="lbl">
+                            <span class="h3-inl mr-auto">ER</span>
+                          </div>
+                          <div class="radio-block-back w-block"></div>
+                        </label>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-4 col-4">
+                        <label class="radio-block check-block rb-21 form-check-label" for="vsAccess">
+                          <input class="form-check-input" type="checkbox" id="vsAccess"/>
+                          <div class="lbl">
+                            <span class="h3-inl lbl">VS</span>
+                          </div>
+                          <div class="radio-block-back w-block"></div>
+                        </label>
+                      </div>
+                      <div class="col-lg-3 col-md-4 col-sm-4 col-4">
+                        <label class="radio-block check-block form-check-label" for="hrAccess">
+                          <input class="form-check-input" type="checkbox" id="hrAccess"/>
+                          <div class="lbl">
+                            <span class="h3-inl lbl">HR</span>
+                          </div>
+                          <div class="radio-block-back w-block"></div>
+                        </label>
+                      </div>
+                      <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+                        <label class="radio-block check-block form-check-label" for="ban" id="ban">
+                          <input class="form-check-input" type="checkbox" id="banCheck"/>
+                          <div class="lbl">
+                            <span class="h3-inl lbl"></span>
+                          </div>
+                          <div class="radio-block-back w-block"></div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>-->
+
+            <div class="col-lg-8 col-md-8 col-sm-12 col-12 chartcol">
+              <div class="w-block mt-20 lh-20">
+                <div class="horiz-input">
+                  
+                  <h3 class="mb-20">Access</h3>
+
+                        <label class="radio-block check-block rb-21 form-check-label" for="erAccess">
+                          <input class="form-check-input" type="checkbox" id="erAccess" checked/>
+                          <div class="lbl">
+                            <span class="h3-inl mr-auto">ER</span>
+                          </div>
+                          <div class="radio-block-back w-block"></div>
+                        </label>
+                      
+                        <label class="radio-block check-block rb-21 form-check-label" for="vsAccess">
+                          <input class="form-check-input" type="checkbox" id="vsAccess" checked/>
+                          <div class="lbl">
+                            <span class="h3-inl lbl">VS</span>
+                          </div>
+                          <div class="radio-block-back w-block"></div>
+                        </label>
+                      
+                        <label class="radio-block check-block form-check-label" for="hrAccess">
+                          <input class="form-check-input" type="checkbox" id="hrAccess" checked/>
+                          <div class="lbl">
+                            <span class="h3-inl lbl">HR</span>
+                          </div>
+                          <div class="radio-block-back w-block"></div>
+                        </label>
+                      
+                        <label class="radio-block check-block form-check-label" for="ban" id="ban">
+                          <input class="form-check-input" type="checkbox" id="banCheck"/>
+                          <div class="lbl">
+                            <span class="h3-inl lbl"></span>
+                          </div>
+                          <div class="radio-block-back w-block"></div>
+                        </label>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+                  <div class="col-lg-9 col-md-12 col-sm-12">
+                    <ul class="nav nav-tabs" id="chartTab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="log-tab" data-toggle="tab" href="#log" role="tab" aria-controls="log" aria-selected="true">Log</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="results-tab" data-toggle="tab" href="#results" role="tab" aria-controls="results" aria-selected="false">Results</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-3 col-md-12 col-sm-12">
+                    <a class="download" role="button" id="getLog" href="#"><ion-icon name="download"></ion-icon>Log</a>
+                  </div>
+                </div>
+
+                <div class="tab-content" id="speakerTab1">
+                  <div class="tab-pane mt-20 fade show active" id="log" role="tabpanel" aria-labelledby="log-tab">
+                    
+                    <!-- CHART BLOCKS -->
+
+                    <table class="table adm-table" id="events">
+                      <thead class="table-head">
+                        <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Time</th>
+                          <th scope="col">Record</th>
+                          <th scope="col">Data</th>
+                          <th scope="col">Video</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">6</th>
+                          <td>Dec 15, 2018, 15:30</td>
+                          <td>Multiframe webcam</td>
+                          <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="document" class="ios"></ion-icon></a></td>
+                          <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="videocam" class="ios"></ion-icon></a></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">5</th>
+                          <td>Dec 14, 2018, 13:11</td>
+                          <td>Multiframe webcam</td>
+                          <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="document" class="ios"></ion-icon></a></td>
+                          <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="videocam" class="ios"></ion-icon></a></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">4</th>
+                          <td>Dec 12, 2018, 22:04</td>
+                          <td>Multiframe webcam</td>
+                          <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="document" class="ios"></ion-icon></a></td>
+                          <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="videocam" class="ios"></ion-icon></a></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Dec 10, 2018, 15:30</td>
+                          <td>Multiframe webcam</td>
+                          <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="document" class="ios"></ion-icon></a></td>
+                          <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="videocam" class="ios"></ion-icon></a></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Dec 10, 2018, 13:11</td>
+                          <td>Multiframe webcam</td>
+                          <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="document" class="ios"></ion-icon></a></td>
+                          <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="videocam" class="ios"></ion-icon></a></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Dec 09, 2018, 22:04</td>
+                          <td>Multiframe webcam</td>
+                          <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="document" class="ios"></ion-icon></a></td>
+                          <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="videocam" class="ios"></ion-icon></a></td>
+                        </tr>
+                      </tbody>
+                    </table> 
+
+                    <nav aria-label="#events">
+                      <ul class="pagination pt-40 pagn">
+                        <li class="page-item disabled">
+                          <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">Next</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+
+                  <div class="tab-pane pt-40 fade" id="results" role="tabpanel" aria-labelledby="results-tab">
+                    <div class="container">
+
+                          <div class="row mb-40" id="filters">
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <button class="filter actv" onclick="filterSelection('all')"><span class="h3-inl">ALL </span></button>
+                                <button class="filter" onclick="filterSelection('er')"><span class="h3-inl">ER </span></button>
+                                <button class="filter" onclick="filterSelection('vs')"><span class="h3-inl">VS </span></button>
+                                <button class="filter" onclick="filterSelection('hr')"><span class="h3-inl">HR </span></button>
+                                <button class="filter inactive"><span class="h3-inl">ZERO </span></button>
+                              </div>  
+                          </div> <!-- end row -->
+
+                          <div class="row m-0">            
+
+                              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 hr flt">
+                                <div class="hover-fade p-30">
+                                  <div>
+                                    <span class="badge badge-tool h3-inl angry">HR</span>
+                                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                                  </div>
+                                  <div>
+                                    <a class="download mt-0 text-left p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Video</a>
+                                    <a class="download mt-0 text-right p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Data</a>
+                                  </div>
+                                </div>
+                                <div class="title-over pt-2 pb-2">
+                                  <span class="badge badge-tool h3-inl angry">HR</span>
+                                  <p class="m-0"><span class="item-date">7h</span> | <span class="item-lenth">06:14</span></p>
+                                </div>
+                                <img class="img-fluid preview" src="../assets/previews/5.png">
+                              </div>
+
+                              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 er flt">
+                                <div class="hover-fade p-30">
+                                  <div>
+                                    <span class="badge badge-tool h3-inl happy">ER</span>
+                                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                                  </div>
+                                  <div>
+                                    <a class="download mt-0 text-left p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Video</a>
+                                    <a class="download mt-0 text-right p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Data</a>
+                                  </div>
+                                </div>
+                                <div class="title-over pt-2 pb-2">
+                                  <span class="badge badge-tool h3-inl happy">ER</span>
+                                  <p class="m-0"><span class="item-date">Yesterday</span> | <span class="item-lenth">03:37</span></p>
+                                </div>
+                                <img class="img-fluid preview" src="../assets/previews/11.png">
+                              </div>
+
+                              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 vs flt">
+                                <div class="hover-fade p-30">
+                                  <div>
+                                    <span class="badge badge-tool h3-inl surprised">VS</span>
+                                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                                  </div>
+                                  <div>
+                                    <a class="download mt-0 text-left p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Video</a>
+                                    <a class="download mt-0 text-right p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Data</a>
+                                  </div>
+                                </div>
+                                <div class="title-over pt-2 pb-2">
+                                  <p class="sound-only">filename.wav</p>
+                                  <span class="badge badge-tool h3-inl surprised">VS</span>
+                                  <p class="m-0"><span class="item-date">4d</span> | <span class="item-lenth">07:57</span></p>
+                                </div>
+                                <img class="img-fluid preview" src="../assets/previews/sound.png">
+                              </div>
+
+                              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 er flt">
+                                <div class="hover-fade p-30">
+                                  <div>
+                                    <span class="badge badge-tool h3-inl happy">ER</span>
+                                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                                  </div>
+                                  <div>
+                                    <a class="download mt-0 text-left p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Video</a>
+                                    <a class="download mt-0 text-right p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Data</a>
+                                  </div>
+                                </div>
+                                <div class="title-over pt-2 pb-2">
+                                  <span class="badge badge-tool h3-inl happy">ER</span>
+                                  <p class="m-0"><span class="item-date">1w</span> | <span class="item-lenth">07:54</span></p>
+                                </div>
+                                <img class="img-fluid preview" src="../assets/previews/4.png">
+                              </div>
+
+                              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 er flt">
+                                <div class="hover-fade p-30">
+                                  <div>
+                                    <span class="badge badge-tool h3-inl happy">ER</span>
+                                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                                  </div>
+                                  <div>
+                                    <a class="download mt-0 text-left p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Video</a>
+                                    <a class="download mt-0 text-right p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Data</a>
+                                  </div>
+                                </div>
+                                <div class="title-over pt-2 pb-2">
+                                  <span class="badge badge-tool h3-inl happy">ER</span>
+                                  <p class="m-0"><span class="item-date">Feb 17</span> | <span class="item-lenth">04:11</span></p>
+                                </div>
+                                <img class="img-fluid preview" src="../assets/previews/3.png">
+                              </div>
+
+                              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 vs flt">
+                                <div class="hover-fade p-30">
+                                  <div>
+                                    <span class="badge badge-tool h3-inl surprised">VS</span>
+                                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                                  </div>
+                                  <div>
+                                    <a class="download mt-0 text-left p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Video</a>
+                                    <a class="download mt-0 text-right p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Data</a>
+                                  </div>
+                                </div>
+                                <div class="title-over pt-2 pb-2">
+                                  <span class="badge badge-tool h3-inl surprised">VS</span>
+                                  <p class="m-0"><span class="item-date">Jan 3</span> | <span class="item-lenth">02:19</span></p>
+                                </div>
+                                <img class="img-fluid preview" src="../assets/previews/8.png">
+                              </div>
+
+                              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 hr flt">
+                                <div class="hover-fade p-30">
+                                  <div>
+                                    <span class="badge badge-tool h3-inl angry">HR</span>
+                                    <a class="btn ndl-btn white-btn m-0" href="#">See results</a>
+                                  </div>
+                                  <div>
+                                    <a class="download mt-0 text-left p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Video</a>
+                                    <a class="download mt-0 text-right p-0" role="button" href="#"><ion-icon name="download"></ion-icon>Data</a>
+                                  </div>
+                                </div>
+                                <div class="title-over pt-2 pb-2">
+                                  <span class="badge badge-tool h3-inl angry">HR</span>
+                                  <p class="m-0"><span class="item-date">Sep 27, 2018</span> | <span class="item-lenth">03:45</span></p>
+                                </div>
+                                <img class="img-fluid preview" src="../assets/previews/6.png">
+                              </div>
+
+                          </div> <!-- end row -->
+
+                    </div> <!-- end tab container -->
+                  </div>
+                </div>
+        
+          
+        
+          
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-3 d-flex align-items-center">
+              <a class="nav-link" href="http://www.neurodatalab.com">Neurodata lab &copy; 2018</a>
+            </div>
+            <div class="col-md-3 col-sm-2 col-xs-1"></div>
+            <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
+                <a href=#>Terms of service</a>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-4 d-flex align-items-center">
+                <a href=#>Contact support</a>
+            </div>
+          </div>
+      </div>
+    </footer>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+    <script src="../vendor/script.js"></script>
+
+  </body>
+
+</html>

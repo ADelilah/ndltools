@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin dashboard - Events</title>
+    <title>Admin dashboard - User ver.1</title>
 
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../vendor/styles.css" rel="stylesheet">
@@ -48,10 +48,10 @@
               </li>
           </ul>
           <ul class="navbar-nav">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="adm.html"><ion-icon name="speedometer" class="ios"></ion-icon></a>
               </li>
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="adm.html">Events</a>
               </li>
           </ul>
@@ -77,7 +77,68 @@
     <!-- Page Content -->
     <div class="back-l w-100">
       <div class="container pt-60 pb-60">
-        <h1>Events</h1>
+          <h1 class="mb-0" id="username">Example User</h1>
+          <h2>#<span id="userID">37453</span></h2>
+
+          <div class="row">
+            <div class="col-md-8 col-sm-12 col-12">
+              <table class="table adm-table" id="user-data">
+            <tbody>
+              <tr>
+                <th scope="row">Last seen on</th>
+                <td>Dec 15, 2018, 15:30</td>
+              </tr>
+              <tr>
+                <th scope="row">Registered on</th>
+                <td>Oct 14, 2018, 13:11</td>
+              </tr>
+              <tr>
+                <th scope="row">Email</th>
+                <td>exampleuser@email.com</td>
+              </tr>
+              <tr>
+                <th scope="row">Company</th>
+                <td>E-Corp</td>
+              </tr>
+              <tr>
+                <th scope="row">Job title</th>
+                <td>Head of Customer Experience</td>
+              </tr>
+              <tr>
+                <th scope="row">Purpose of use</th>
+                <td>Interview analysis</td>
+              </tr>
+            </tbody>
+          </table>
+            </div>
+            <div class="col-md-4 col-sm-12 col-12">
+              <a data-toggle="collapse" href="#er" role="button">
+                <div class="access-block mb-20">
+                  <div class="happy collapse show" id="er">
+                    <h3><ion-icon name="checkmark-circle" class="ios white"></ion-icon></h3>
+                  </div>
+                  <h3 class="access-abs-title">ER access</h3>
+                </div>
+              </a>
+              <a data-toggle="collapse" href="#vs" role="button">
+                <div class="access-block mb-20">
+                  <div class="surprised collapse show" id="vs">
+                    <h3><ion-icon name="checkmark-circle" class="ios"></ion-icon></h3>
+                  </div>
+                  <h3 class="access-abs-title">VS access</h3>
+                </div>
+              </a>
+              <a data-toggle="collapse" href="#hr" role="button">
+                <div class="access-block mb-20">
+                  <div class="angry collapse" id="hr">
+                    <h3><ion-icon name="checkmark-circle" class="ios"></ion-icon></h3>
+                  </div>
+                  <h3 class="access-abs-title">HR access</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+          <h2 class="pt-40 mb-20">Log</h2>
         
           <table class="table adm-table" id="events">
             <thead class="table-head">
@@ -85,7 +146,6 @@
                 <th scope="col">ID</th>
                 <th scope="col">Time</th>
                 <th scope="col">Record</th>
-                <th scope="col">User</th>
                 <th scope="col">Data</th>
                 <th scope="col">Video</th>
               </tr>
@@ -95,7 +155,6 @@
                 <th scope="row">6</th>
                 <td>Dec 15, 2018, 15:30</td>
                 <td>Multiframe webcam</td>
-                <td><a target="_blank" href="example-user.html">Mark Stern</a></td>
                 <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="document" class="ios"></ion-icon></a></td>
                 <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="videocam" class="ios"></ion-icon></a></td>
               </tr>
@@ -103,7 +162,6 @@
                 <th scope="row">5</th>
                 <td>Dec 14, 2018, 13:11</td>
                 <td>Multiframe webcam</td>
-                <td><a target="_blank" href="example-user.html">John Doe</a></td>
                 <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="document" class="ios"></ion-icon></a></td>
                 <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="videocam" class="ios"></ion-icon></a></td>
               </tr>
@@ -111,7 +169,6 @@
                 <th scope="row">4</th>
                 <td>Dec 12, 2018, 22:04</td>
                 <td>Multiframe webcam</td>
-                <td><a target="_blank" href="example-user.html">Steve Jobs</a></td>
                 <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="document" class="ios"></ion-icon></a></td>
                 <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="videocam" class="ios"></ion-icon></a></td>
               </tr>
@@ -119,7 +176,6 @@
                 <th scope="row">3</th>
                 <td>Dec 10, 2018, 15:30</td>
                 <td>Multiframe webcam</td>
-                <td><a target="_blank" href="example-user.html">Mark Stern</a></td>
                 <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="document" class="ios"></ion-icon></a></td>
                 <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="videocam" class="ios"></ion-icon></a></td>
               </tr>
@@ -127,7 +183,6 @@
                 <th scope="row">2</th>
                 <td>Dec 10, 2018, 13:11</td>
                 <td>Multiframe webcam</td>
-                <td><a target="_blank" href="example-user.html">John Doe</a></td>
                 <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="document" class="ios"></ion-icon></a></td>
                 <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="videocam" class="ios"></ion-icon></a></td>
               </tr>
@@ -135,12 +190,11 @@
                 <th scope="row">1</th>
                 <td>Dec 09, 2018, 22:04</td>
                 <td>Multiframe webcam</td>
-                <td><a target="_blank" href="example-user.html">Steve Jobs</a></td>
                 <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="document" class="ios"></ion-icon></a></td>
                 <td><a class="download-u" role="button" href="#"><ion-icon name="download" class="for-lg"></ion-icon> <ion-icon name="videocam" class="ios"></ion-icon></a></td>
               </tr>
             </tbody>
-          </table>
+          </table> 
           <nav aria-label="#events">
             <ul class="pagination pt-40 pagn">
               <li class="page-item disabled">
@@ -156,6 +210,8 @@
               </li>
             </ul>
           </nav>
+        
+          
       </div>
     </div>
 
